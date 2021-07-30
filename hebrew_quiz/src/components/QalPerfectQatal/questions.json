@@ -1,0 +1,38 @@
+[
+    {
+        "question": "קָטַל",
+        "answer": "3ms"
+    },
+    {
+        "question": "קָטְלָה",
+        "answer": "3fs"
+    },
+    {
+        "question": "קָטַלְתָּ",
+        "answer": "2ms"
+    },
+    {
+        "question": "קָטַלְתְּ",
+        "answer": "2fs"
+    },
+    {
+        "question": "קָטַלְתִּי",
+        "answer": "1cs"
+    },
+    {
+        "question": "קָטְלוּ",
+        "answer": "3cp"
+    },
+    {
+        "question": "קְטַלְתֶּם",
+        "answer": "2mp"
+    },
+    {
+        "question": "קְטַלְתֶּן",
+        "answer": "2fp"
+    },
+    {
+        "question": "קָטַלְנוּ",
+        "answer": "1cp"
+    }
+]

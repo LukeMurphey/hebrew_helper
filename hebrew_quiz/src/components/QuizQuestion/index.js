@@ -6,7 +6,7 @@ import { UNANSWERED, CORRECT, INCORRECT } from "../QuizQuestion/constants";
 function QuizQuestion({ title, inverted, children, onSubmit, answerStatus }) {
   return (
     <Segment inverted={inverted}>
-      <Header as="h4">{title}</Header>
+      <Header as="h2">{title}</Header>
       <div>{children}</div>
       <div style={{ marginTop: 16 }}>
         {answerStatus === UNANSWERED && (

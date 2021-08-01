@@ -4,19 +4,21 @@ import VerbParsingQuestion from "../Verb/VerbParsingQuestion";
 import { URL_HOME } from "../URLs/index";
 import { withRouter } from "react-router-dom";
 import questions from "./questions.json";
+import { shuffle } from "../Utils/index";
 
-function QalPerfectQatal({ subtitle, inverted, history }) {
+function QalPerfectQatal({ subtitle, inverted, history, title }) {
+  const shuffledQuestions= shuffle(questions);
   const [questionNumber, setQuestionNumber] = useState(0);
-  const question = questions[questionNumber];
+  const question = shuffledQuestions[questionNumber];
 
   return (
     <>
       <VerbParsingQuestion
-        title={"Parse this verb"}
+        title={title}
         subtitle={subtitle}
-        question={question["question"]}
+        question={`Parse this verb: ${question["question"]}`}
         answer={question["answer"]}
-        percent={questionNumber / questions.length}
+        percent={100 * (questionNumber / questions.length)}
         inverted={inverted}
         onClose={() => history.push(URL_HOME)}
         onAnswered={(correct) => {
@@ -37,7 +39,7 @@ QalPerfectQatal.propTypes = {
 
 QalPerfectQatal.defaultProps = {
   inverted: false,
-  subtitle: "Qal Perfect Qatal",
+  title: "Qal Perfect (Qatal)",
 };
 
 export default withRouter(QalPerfectQatal);

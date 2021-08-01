@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Dropdown } from "semantic-ui-react";
 import {
@@ -17,18 +17,7 @@ import {
   getNumberText,
 } from "../Hebrew/index";
 
-function ParsingAnswer({ inverted, onChange }) {
-  const [person, setPerson] = useState(null);
-  const [gender, setGender] = useState(null);
-  const [number, setNumber] = useState(null);
-
-  useEffect(() => {
-    if (person && gender && number) {
-      onChange(`${person}${gender}${number}`);
-    } else {
-      onChange(null);
-    }
-  }, [person, gender, number, onChange]);
+function ParsingAnswer({ inverted, onChange, person, gender, number }) {
 
   return (
     <>
@@ -38,21 +27,21 @@ function ParsingAnswer({ inverted, onChange }) {
             active={person === PERSON_FIRST}
             text="First"
             onClick={() => {
-              setPerson(PERSON_FIRST);
+              onChange(PERSON_FIRST, gender, number);
             }}
           />
           <Dropdown.Item
             active={person === PERSON_SECOND}
             text="Second"
             onClick={() => {
-              setPerson(PERSON_SECOND);
+              onChange(PERSON_SECOND, gender, number);
             }}
           />
           <Dropdown.Item
             active={person === PERSON_THIRD}
             text="Third"
             onClick={() => {
-              setPerson(PERSON_THIRD);
+              onChange(PERSON_THIRD, gender, number);
             }}
           />
         </Dropdown.Menu>
@@ -63,28 +52,28 @@ function ParsingAnswer({ inverted, onChange }) {
             active={gender === GENDER_MASC}
             text="Masculine"
             onClick={() => {
-              setGender(GENDER_MASC);
+              onChange(person, GENDER_MASC, number);
             }}
           />
           <Dropdown.Item
             active={gender === GENDER_FEM}
             text="Feminine"
             onClick={() => {
-              setGender(GENDER_FEM);
+              onChange(person, GENDER_FEM, number);
             }}
           />
           <Dropdown.Item
             active={gender === GENDER_COM}
             text="Common"
             onClick={() => {
-              setGender(GENDER_COM);
+              onChange(person, GENDER_COM, number);
             }}
           />
           <Dropdown.Item
             active={gender === GENDER_NEUT}
             text="Neuter"
             onClick={() => {
-              setGender(GENDER_NEUT);
+              onChange(person, GENDER_NEUT, number);
             }}
           />
         </Dropdown.Menu>
@@ -95,21 +84,21 @@ function ParsingAnswer({ inverted, onChange }) {
             active={number === NUMBER_SINGULAR}
             text="Singular"
             onClick={() => {
-              setNumber(NUMBER_SINGULAR);
+              onChange(person, gender, NUMBER_SINGULAR);
             }}
           />
           <Dropdown.Item
             active={number === NUMBER_DUAL}
             text="Dual"
             onClick={() => {
-              setNumber(NUMBER_DUAL);
+              onChange(person, gender, NUMBER_DUAL);
             }}
           />
           <Dropdown.Item
             active={number === NUMBER_PLURAL}
             text="Plural"
             onClick={() => {
-              setNumber(NUMBER_PLURAL);
+              onChange(person, gender, NUMBER_PLURAL);
             }}
           />
         </Dropdown.Menu>
@@ -121,10 +110,16 @@ function ParsingAnswer({ inverted, onChange }) {
 ParsingAnswer.propTypes = {
   inverted: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  person: PropTypes.oneOf([PERSON_FIRST, PERSON_SECOND, PERSON_THIRD, null]),
+  gender: PropTypes.oneOf([GENDER_MASC, GENDER_FEM, GENDER_COM, GENDER_NEUT, null]),
+  number: PropTypes.oneOf([NUMBER_SINGULAR, NUMBER_PLURAL, NUMBER_DUAL, null]),
 };
 
 ParsingAnswer.defaultProps = {
   inverted: false,
+  person: null,
+  gender: null,
+  number: null,
 };
 
 export default ParsingAnswer;

@@ -1,8 +1,14 @@
+/**
+ * This offers a verb parsing question. This users several other components:
+ *    QuizQuestion: offers the question alone with the submit buttons
+ *    Verb/ParsingAnswer: offers the dropdowns for selecting the verb parsing
+ */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Header, Container, Progress, Icon } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 import QuizQuestion from "../QuizQuestion";
+import { UNANSWERED, CORRECT, INCORRECT } from "../QuizQuestion/constants";
+import QuizContainer from "../QuizContainer";
 import ParsingAnswer from "../Verb/ParsingAnswer";
 
 // https://github.com/LukeMurphey/learning_biblical_hebrew_flashcards/blob/master/qal_perfect_qatal.csv
@@ -17,33 +23,28 @@ function VerbParsingQuestion({
   answer,
 }) {
   const [userAnswer, setUserAnswer] = useState(null);
-  const [answerStatus, setAnswerStatus] = useState(null);
+  const [answerStatus, setAnswerStatus] = useState(UNANSWERED);
 
   return (
-    <Container style={{ marginTop: 32 }}>
-      <p>
-        <Icon name="close" onClick={() => onClose()} />
-        {percent && <Progress percent={percent} success />}
-        <Header as="h2">{title}</Header>
-        <Header as="h3" color="grey">
-          {subtitle}
-        </Header>
-        <QuizQuestion
-          title={question}
-          onSubmit={() => onAnswered(userAnswer === answer)}
-          answerStatus={answerStatus}
-        >
-          <ParsingAnswer
-            inverted={inverted}
-            onChange={(a) => {
+    <QuizContainer title={title} subtitle={subtitle} percent={percent} onClose={onClose}>
+      <QuizQuestion
+        title={question}
+        onSubmit={() => {
+          setAnswerStatus(userAnswer === answer ? CORRECT : INCORRECT);
+          onAnswered(userAnswer === answer);
+        }}
+        answerStatus={answerStatus}
+      >
+        <ParsingAnswer
+          inverted={inverted}
+          onChange={(a) => {
+            if (a) {
               setUserAnswer(a);
-              setAnswerStatus(a === answer);
-            }}
-          />
-          <div>{userAnswer}</div>
-        </QuizQuestion>
-      </p>
-    </Container>
+            }
+          }}
+        />
+      </QuizQuestion>
+    </QuizContainer>
   );
 }
 

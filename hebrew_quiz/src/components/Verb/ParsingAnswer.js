@@ -17,11 +17,11 @@ import {
   getNumberText,
 } from "../Hebrew/index";
 
-function ParsingAnswer({ inverted, onChange, person, gender, number }) {
+function ParsingAnswer({ inverted, onChange, person, gender, number, disabled }) {
 
   return (
     <>
-      <Dropdown selection text={getPersonText(person)} style={{marginRight: 16}} >
+      <Dropdown disabled={disabled} selection text={getPersonText(person)} style={{marginRight: 16}} >
         <Dropdown.Menu>
           <Dropdown.Item
             active={person === PERSON_FIRST}
@@ -46,7 +46,7 @@ function ParsingAnswer({ inverted, onChange, person, gender, number }) {
           />
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown selection text={getGenderText(gender)} style={{marginRight: 16}}>
+      <Dropdown disabled={disabled} selection text={getGenderText(gender)} style={{marginRight: 16}}>
         <Dropdown.Menu>
           <Dropdown.Item
             active={gender === GENDER_MASC}
@@ -78,7 +78,7 @@ function ParsingAnswer({ inverted, onChange, person, gender, number }) {
           />
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown selection text={getNumberText(number)}>
+      <Dropdown disabled={disabled} selection text={getNumberText(number)}>
         <Dropdown.Menu>
           <Dropdown.Item
             active={number === NUMBER_SINGULAR}
@@ -109,6 +109,7 @@ function ParsingAnswer({ inverted, onChange, person, gender, number }) {
 
 ParsingAnswer.propTypes = {
   inverted: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   person: PropTypes.oneOf([PERSON_FIRST, PERSON_SECOND, PERSON_THIRD, null]),
   gender: PropTypes.oneOf([GENDER_MASC, GENDER_FEM, GENDER_COM, GENDER_NEUT, null]),
@@ -117,6 +118,7 @@ ParsingAnswer.propTypes = {
 
 ParsingAnswer.defaultProps = {
   inverted: false,
+  disabled: false,
   person: null,
   gender: null,
   number: null,

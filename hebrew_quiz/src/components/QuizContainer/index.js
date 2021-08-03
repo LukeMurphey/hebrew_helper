@@ -15,7 +15,9 @@ function QuizContainer({
     <Container style={{ marginTop: 32 }}>
       <p>
         <Icon name="close" onClick={() => onClose()} />
-        {percent && <Progress percent={percent} success />}
+        {percent !== null && (
+          <Progress percent={percent} success />
+        )}
         <Header as="h2">{title}</Header>
         <Header as="h3" color="grey">
           {subtitle}

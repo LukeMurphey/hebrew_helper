@@ -6,7 +6,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import { Message, Button } from "semantic-ui-react";
 import QuizQuestion from "../QuizQuestion";
 import { UNANSWERED, CORRECT, INCORRECT } from "../QuizQuestion/constants";
 import QuizContainer from "../QuizContainer";
@@ -36,65 +35,47 @@ function VerbParsingQuestion({
       subtitle={subtitle}
       percent={percent}
       onClose={onClose}
-    >
-      {answerStatus === CORRECT && (
-        <>
-          <Message positive>
-            <Message.Header>Correct</Message.Header>
-            <p>The answer is correct.</p>
-          </Message>
-          <Button positive onClick={() => setAnswerStatus(UNANSWERED)}>
-            Next question
-          </Button>
-        </>
-      )}
+  >
+      <QuizQuestion
+        title={question}
+        onSubmit={() => {
+          if(answerStatus === CORRECT ) {
+            setAnswerStatus(UNANSWERED);
 
-      {answerStatus === INCORRECT && (
-        <>
-          <Message negative>
-            <Message.Header>Oops</Message.Header>
-            <p>The answer is not correct. The correct answer is "{`${answer}`}"</p>
-          </Message>
-          <Button positive onClick={() => setAnswerStatus(UNANSWERED)}>
-            Next question
-          </Button>
-        </>
-      )}
-
-      {answerStatus === UNANSWERED && (
-        <QuizQuestion
-          title={question}
-          onSubmit={() => {
-            setAnswerStatus(userAnswer === answer ? CORRECT : INCORRECT);
-            onAnswered(userAnswer === answer);
-
-            // Reset the answer if the user got it right
+            // Reset the answer
             if (userAnswer === answer) {
               setPerson(null);
               setGender(null);
               setNumber(null);
             }
-          }}
-          answerStatus={answerStatus}
-        >
-          <ParsingAnswer
-            inverted={inverted}
-            question={question}
-            onChange={(p, g, n) => {
-              setPerson(p);
-              setGender(g);
-              setNumber(n);
 
-              if (p && g && n) {
-                setUserAnswer(`${p}${g}${n}`);
-              }
-            }}
-            person={person}
-            gender={gender}
-            number={number}
-          />
-        </QuizQuestion>
-      )}
+            onAnswered(userAnswer === answer);
+          }
+          else{
+            setAnswerStatus(userAnswer === answer ? CORRECT : INCORRECT);
+          }
+        }}
+        answerStatus={answerStatus}
+        correctAnswer={answer}
+      >
+        <ParsingAnswer
+          inverted={inverted}
+          question={question}
+          onChange={(p, g, n) => {
+            setPerson(p);
+            setGender(g);
+            setNumber(n);
+
+            if (p && g && n) {
+              setUserAnswer(`${p}${g}${n}`);
+            }
+          }}
+          person={person}
+          gender={gender}
+          number={number}
+          disabled={answerStatus === CORRECT}
+        />
+      </QuizQuestion>
     </QuizContainer>
   );
 }

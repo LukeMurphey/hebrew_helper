@@ -40,6 +40,7 @@ function VerbParsingQuestion({
         title={question}
         onSubmit={() => {
           if(answerStatus === CORRECT ) {
+            // We have confirmed the answer status and now need to move to the next question
             setAnswerStatus(UNANSWERED);
 
             // Reset the answer
@@ -49,6 +50,7 @@ function VerbParsingQuestion({
               setNumber(null);
             }
 
+            // Tell the caller that the question was answered and we should move to the next question
             onAnswered(userAnswer === answer);
           }
           else{

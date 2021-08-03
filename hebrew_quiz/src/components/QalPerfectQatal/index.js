@@ -19,7 +19,7 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
   return (
     <>
       { !question && (
-        <QuizCompleteDialog />
+        <QuizCompleteDialog quizName={title} />
       )
       }
       { question && (

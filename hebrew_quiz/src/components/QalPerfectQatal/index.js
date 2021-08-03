@@ -7,6 +7,7 @@ import questions from "./questions.json";
 import { shuffle } from "../Utils/index";
 import QuizCompleteDialog from "../QuizCompleteDialog/index";
 
+// Shuffle the questions so that users don't see the exact same questions every time
 const shuffledQuestions= shuffle(questions);
 
 function QalPerfectQatal({ subtitle, inverted, history, title }) {

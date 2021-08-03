@@ -5,14 +5,24 @@ import { URL_HOME } from "../URLs/index";
 import { withRouter } from "react-router-dom";
 import questions from "./questions.json";
 import { shuffle } from "../Utils/index";
+import QuizCompleteDialog from "../QuizCompleteDialog/index";
 
 function QalPerfectQatal({ subtitle, inverted, history, title }) {
   const shuffledQuestions= shuffle(questions);
   const [questionNumber, setQuestionNumber] = useState(0);
-  const question = shuffledQuestions[questionNumber];
+  let question = null;
+  
+  if( questionNumber < shuffledQuestions.length ){
+    question = shuffledQuestions[questionNumber];
+  }
 
   return (
     <>
+      { !question && (
+        <QuizCompleteDialog />
+      )
+      }
+      { question && (
       <VerbParsingQuestion
         title={title}
         subtitle={subtitle}
@@ -27,6 +37,7 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
           }
         }}
       />
+      )}
     </>
   );
 }

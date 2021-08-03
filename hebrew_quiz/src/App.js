@@ -7,12 +7,13 @@ import {
 } from "react-router-dom";
 import PropTypes from 'prop-types';
 import Pronominal from './components/Pronominal/index';
-import QalPerfect from './components/QalPerfectQatal/index';
 import QuizList from './components/QuizList/index';
 import {URL_PRONOMINAL, URL_QAL_PERFECT} from './components/URLs/index';
 import history from './history';
+import { QuizUrls } from "./components/QuizList/QuizUrls";
 
 function App({ inverted }) {
+
   return (
     <Router history={history}>
       <Route exact path="/">
@@ -21,9 +22,12 @@ function App({ inverted }) {
       <Route exact path={URL_PRONOMINAL}>
         <Pronominal inverted={inverted} />
       </Route>
-      <Route exact path={URL_QAL_PERFECT}>
-        <QalPerfect inverted={inverted} />
-      </Route>
+      {QuizUrls({ inverted }).map((quiz, i) => (
+        <Route exact path={URL_QAL_PERFECT}>
+          {quiz.render}
+        </Route>
+        )
+      )}
     </Router> 
   );
 }

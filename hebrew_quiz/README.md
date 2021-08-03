@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Things You Might want to do
+
+### I want to register a new quiz
+
+To do this, you will need to:
+1. Create you view with the appropriate quiz; see the example in `hebrew_quiz/src/components/QalPerfectQatal/index.js`
+2. Create the URL for the quiz in `hebrew_quiz/src/components/URLs/index.js`
+3. Create the configuration for the quiz in `hebrew_quiz/src/components/QuizList/QuizUrls.js`

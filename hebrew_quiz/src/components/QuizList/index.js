@@ -1,10 +1,22 @@
 // import './QuizList.css';
 import { Table, Header } from 'semantic-ui-react';
-import {URL_PRONOMINAL, URL_QAL_PERFECT} from '../URLs/index';
 import { Container } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
+import { QuizUrls } from "./QuizUrls";
+import PropTypes from 'prop-types';
 
-function QuizList() {
+function QuizList( { inverted }) {
+  const quizRows = [];
+  for (const [index, value] of QuizUrls({ inverted }).entries()) {
+    quizRows.push(
+      <Table.Row key={index}>
+        <Table.Cell>{value.chapter}</Table.Cell>
+        <Table.Cell>{value.title}</Table.Cell>
+        <Table.Cell><Link to={value.path}>Start</Link></Table.Cell>
+      </Table.Row>
+    );
+  }
+
   return (
     <Container text>
       <Header as="h1" dividing>
@@ -19,20 +31,19 @@ function QuizList() {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                <Table.Row>
-                    <Table.Cell>B</Table.Cell>
-                    <Table.Cell>Pronominal</Table.Cell>
-                    <Table.Cell><Link to={URL_PRONOMINAL}>Start</Link></Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Cell>B</Table.Cell>
-                    <Table.Cell>Qal Perfect</Table.Cell>
-                    <Table.Cell><Link to={URL_QAL_PERFECT}>Start</Link></Table.Cell>
-                </Table.Row>
+              {quizRows}
             </Table.Body>
         </Table>
     </Container>
   );
 }
+
+QuizList.propTypes = {
+  inverted: PropTypes.bool,
+};
+
+QuizList.defaultProps = {
+  inverted: true,
+};
 
 export default QuizList;

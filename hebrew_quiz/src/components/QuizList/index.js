@@ -2,12 +2,12 @@
 import { Table, Header } from 'semantic-ui-react';
 import { Container } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-import { QuizUrls } from "./QuizUrls";
+import QuizRegistry from "../QuizRegistry";
 import PropTypes from 'prop-types';
 
 function QuizList( { inverted }) {
   const quizRows = [];
-  for (const [index, value] of QuizUrls({ inverted }).entries()) {
+  for (const [index, value] of QuizRegistry({ inverted }).entries()) {
     quizRows.push(
       <Table.Row key={index}>
         <Table.Cell>{value.chapter}</Table.Cell>

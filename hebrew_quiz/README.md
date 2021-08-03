@@ -76,4 +76,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 To do this, you will need to:
 1. Create you view with the appropriate quiz; see the example in `hebrew_quiz/src/components/QalPerfectQatal/index.js`
 2. Create the URL for the quiz in `hebrew_quiz/src/components/URLs/index.js`
-3. Create the configuration for the quiz in `hebrew_quiz/src/components/QuizList/QuizUrls.js`
+3. Create the configuration for the quiz in `hebrew_quiz/src/components/QuizRegistry/index.js`

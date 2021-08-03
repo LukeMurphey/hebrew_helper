@@ -1,7 +1,7 @@
 import {URL_QAL_PERFECT} from '../URLs/index';
 import QalPerfect from '../QalPerfectQatal/index';
 
-export function QuizUrls({ inverted }){
+export default function QuizRegistry({ inverted }){
     return [
         {
             "title": "Qal Perfects (Qatal)",

@@ -7,11 +7,14 @@ import questions from "./questions.json";
 import { shuffle } from "../Utils/index";
 import QuizCompleteDialog from "../QuizCompleteDialog/index";
 
+const shuffledQuestions= shuffle(questions);
+
 function QalPerfectQatal({ subtitle, inverted, history, title }) {
-  const shuffledQuestions= shuffle(questions);
   const [questionNumber, setQuestionNumber] = useState(0);
   let question = null;
   
+  // If the question is within the list, then get it
+  // Otherwise, if it after the end then we have completed the quiz
   if( questionNumber < shuffledQuestions.length ){
     question = shuffledQuestions[questionNumber];
   }

@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import Pronominal from './components/Pronominal/index';
 import QuizList from './components/QuizList/index';
-import {URL_PRONOMINAL, URL_QAL_PERFECT} from './components/URLs/index';
+import {URL_PRONOMINAL} from './components/URLs/index';
 import history from './history';
 import QuizRegistry from "./components/QuizRegistry";
 
@@ -23,7 +23,7 @@ function App({ inverted }) {
         <Pronominal inverted={inverted} />
       </Route>
       {QuizRegistry({ inverted }).map((quiz, i) => (
-        <Route exact path={URL_QAL_PERFECT}>
+        <Route exact path={quiz.path}>
           {quiz.render}
         </Route>
         )

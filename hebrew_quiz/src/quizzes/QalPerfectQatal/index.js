@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import VerbParsingQuestion from "../Verb/VerbParsingQuestion";
-import { URL_HOME } from "../URLs/index";
+import VerbParsingQuestion from "../../components/Verb/VerbParsingQuestion";
+import { URL_HOME } from "../../components/URLs/index";
 import { withRouter } from "react-router-dom";
 import questions from "./questions.json";
-import { shuffle } from "../Utils/index";
-import QuizCompleteDialog from "../QuizCompleteDialog/index";
+import { shuffle } from "../../components/Utils/index";
+import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 
 // Shuffle the questions so that users don't see the exact same questions every time
 const shuffledQuestions= shuffle(questions);

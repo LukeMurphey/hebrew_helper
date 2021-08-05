@@ -1,7 +1,7 @@
 import {URL_QAL_PERFECT, URL_VOCAB_4} from '../URLs/index';
 import QalPerfect from '../QalPerfectQatal/index';
 import VocabularyQuiz from '../VocabularyQuiz/index';
-import chapter_1 from "../VocabularyQuiz/data/chapter_1.json";
+import chapter_4 from "../../quizzes/VocabularyQuiz/data/chapter_4.json";
 import { shuffle } from "../Utils/index";
 
 export default function QuizRegistry({ inverted }){
@@ -16,7 +16,7 @@ export default function QuizRegistry({ inverted }){
             "title": "Chapter 4 Vocabulary",
             "chapter": 4,
             "path": URL_VOCAB_4,
-            "render": <VocabularyQuiz inverted={inverted} title={"Chapter 4 Vocabulary"} questionSet={shuffle(chapter_1)} />
+            "render": <VocabularyQuiz inverted={inverted} title={"Chapter 4 Vocabulary"} questionSet={shuffle(chapter_4)} />
         }
     ];
 }

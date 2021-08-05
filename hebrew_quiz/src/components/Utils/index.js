@@ -18,3 +18,7 @@ export function shuffle(array) {
 
   return array;
 }
+
+export function vocabularyQuizTitle(chapter) {
+  return `Chapter ${chapter} Vocabulary`;
+}

@@ -39,12 +39,6 @@ import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 export default function QuizRegistry({ inverted }) {
   return [
     {
-      title: "Qal Perfects (Qatal)",
-      chapter: 12,
-      path: URL_QAL_PERFECT,
-      render: <QalPerfect inverted={inverted} />,
-    },
-    {
       title: "Chapter 4 Vocabulary",
       chapter: 4,
       path: URL_VOCAB_4,
@@ -115,6 +109,12 @@ export default function QuizRegistry({ inverted }) {
           questionSet={shuffle(chapter_11)}
         />
       ),
+    },
+    {
+      title: "Qal Perfects (Qatal)",
+      chapter: 12,
+      path: URL_QAL_PERFECT,
+      render: <QalPerfect inverted={inverted} />,
     },
     {
       title: "Chapter 13 Vocabulary",

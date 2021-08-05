@@ -16,7 +16,7 @@ export default function QuizRegistry({ inverted }){
             "title": "Chapter 4 Vocabulary",
             "chapter": 4,
             "path": URL_VOCAB_4,
-            "render": <VocabularyQuiz inverted={inverted} title={"Vocabulary quiz for chapter 4"} questionSet={shuffle(chapter_1)} />
+            "render": <VocabularyQuiz inverted={inverted} title={"Chapter 4 Vocabulary"} questionSet={shuffle(chapter_1)} />
         }
     ];
 }

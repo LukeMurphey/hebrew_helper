@@ -16,10 +16,10 @@ function QuizQuestion({
       <Header as="h2">{title}</Header>
       <div>{children}</div>
       <div style={{ marginTop: 16 }}>
-        {answerStatus === UNANSWERED && (
+        {answerStatus === UNANSWERED && onSubmit !== null && (
           <Button onClick={() => onSubmit()}>Submit</Button>
         )}
-        {answerStatus === CORRECT && (
+        {answerStatus === CORRECT && onSubmit !== null && (
           <>
             <Message positive>
               <Message.Header>Yay</Message.Header>
@@ -31,7 +31,7 @@ function QuizQuestion({
             </Button>
           </>
         )}
-        {answerStatus === INCORRECT && (
+        {answerStatus === INCORRECT && onSubmit !== null && (
           <>
             <Message negative>
               <Message.Header>Oops</Message.Header>
@@ -59,7 +59,7 @@ QuizQuestion.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   correctAnswer: PropTypes.string,
 };
 
@@ -67,6 +67,7 @@ QuizQuestion.defaultProps = {
   inverted: false,
   answerStatus: null,
   correctAnswer: null,
+  onSubmit: null,
 };
 
 export default QuizQuestion;

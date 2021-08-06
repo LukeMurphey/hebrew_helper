@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import VerbParsingQuestion from "../../components/Verb/VerbParsingQuestion";
-import { URL_HOME } from "../../components/URLs/index";
+import { URL_QUIZZES } from "../../components/URLs/index";
 import { withRouter } from "react-router-dom";
 import questions from "./questions.json";
 import { shuffle } from "../../components/Utils/index";
@@ -34,7 +34,7 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
         answer={question["answer"]}
         percent={100 * (questionNumber / questions.length)}
         inverted={inverted}
-        onClose={() => history.push(URL_HOME)}
+        onClose={() => history.push(URL_QUIZZES)}
         onAnswered={(correct) => {
           if(correct) {
             setQuestionNumber(1 + questionNumber);

@@ -7,7 +7,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import { URL_HOME } from "../../components/URLs/index";
+import { URL_QUIZZES } from "../../components/URLs/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 import MatchingQuestion from "../../components/MatchingQuestion";
 
@@ -33,7 +33,7 @@ function VocabularyQuiz({ inverted, title, maxPerPage, questionSet, history }) {
           inverted={inverted}
           title={title}
           percent={100 * (pageNumber / pageCount)}
-          onClose={() => history.push(URL_HOME)}
+          onClose={() => history.push(URL_QUIZZES)}
           onAnswered={() => {
             setPageNumber(pageNumber + 1);
           }}

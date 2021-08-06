@@ -1,4 +1,6 @@
 export const URL_HOME = '/';
+export const URL_QUIZZES = '/quizzes';
+export const URL_ABOUT = '/about';
 
 // Quizzes
 export const URL_PRONOMINAL = '/pronominal';

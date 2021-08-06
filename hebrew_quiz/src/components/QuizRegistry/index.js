@@ -38,7 +38,7 @@ import chapter_19 from "../../quizzes/MatchingQuiz/data/chapter_19.json";
 import chapter_20 from "../../quizzes/MatchingQuiz/data/chapter_20.json";
 import chapter_22 from "../../quizzes/MatchingQuiz/data/chapter_22.json";
 
-import { shuffle, MatchingQuizTitle } from "../Utils/index";
+import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 
 export default function QuizRegistry({ inverted }) {
   return [
@@ -62,7 +62,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(4)}
+          title={vocabularyQuizTitle(4)}
           questionSet={shuffle(chapter_4)}
         />
       ),
@@ -74,7 +74,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(5)}
+          title={vocabularyQuizTitle(5)}
           questionSet={shuffle(chapter_5)}
         />
       ),
@@ -86,7 +86,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(7)}
+          title={vocabularyQuizTitle(7)}
           questionSet={shuffle(chapter_7)}
         />
       ),
@@ -98,7 +98,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(8)}
+          title={vocabularyQuizTitle(8)}
           questionSet={shuffle(chapter_8)}
         />
       ),
@@ -122,7 +122,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(9)}
+          title={vocabularyQuizTitle(9)}
           questionSet={shuffle(chapter_9)}
         />
       ),
@@ -134,7 +134,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(11)}
+          title={vocabularyQuizTitle(11)}
           questionSet={shuffle(chapter_11)}
         />
       ),
@@ -152,7 +152,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(13)}
+          title={vocabularyQuizTitle(13)}
           questionSet={shuffle(chapter_13)}
         />
       ),
@@ -164,7 +164,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(14)}
+          title={vocabularyQuizTitle(14)}
           questionSet={shuffle(chapter_14)}
         />
       ),
@@ -176,7 +176,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(15)}
+          title={vocabularyQuizTitle(15)}
           questionSet={shuffle(chapter_15)}
         />
       ),
@@ -188,7 +188,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(16)}
+          title={vocabularyQuizTitle(16)}
           questionSet={shuffle(chapter_16)}
         />
       ),
@@ -200,7 +200,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(17)}
+          title={vocabularyQuizTitle(17)}
           questionSet={shuffle(chapter_17)}
         />
       ),
@@ -212,7 +212,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(18)}
+          title={vocabularyQuizTitle(18)}
           questionSet={shuffle(chapter_18)}
         />
       ),
@@ -224,7 +224,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(19)}
+          title={vocabularyQuizTitle(19)}
           questionSet={shuffle(chapter_19)}
         />
       ),
@@ -236,7 +236,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(20)}
+          title={vocabularyQuizTitle(20)}
           questionSet={shuffle(chapter_20)}
         />
       ),
@@ -248,7 +248,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={MatchingQuizTitle(22)}
+          title={vocabularyQuizTitle(22)}
           questionSet={shuffle(chapter_22)}
         />
       ),

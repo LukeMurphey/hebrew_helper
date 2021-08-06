@@ -1,4 +1,5 @@
 import {
+  URL_LETTERS,
   URL_QAL_PERFECT,
   URL_VOCAB_4,
   URL_VOCAB_5,
@@ -15,37 +16,53 @@ import {
   URL_VOCAB_19,
   URL_VOCAB_20,
   URL_VOCAB_22,
+  URL_PRONOMINAL,
 } from "../URLs/index";
 import QalPerfect from "../../quizzes/QalPerfectQatal/index";
-import VocabularyQuiz from "../../quizzes/VocabularyQuiz/index";
-import chapter_4 from "../../quizzes/VocabularyQuiz/data/chapter_4.json";
-import chapter_5 from "../../quizzes/VocabularyQuiz/data/chapter_5.json";
-import chapter_7 from "../../quizzes/VocabularyQuiz/data/chapter_7.json";
-import chapter_8 from "../../quizzes/VocabularyQuiz/data/chapter_8.json";
-import chapter_9 from "../../quizzes/VocabularyQuiz/data/chapter_9.json";
-import chapter_11 from "../../quizzes/VocabularyQuiz/data/chapter_11.json";
-import chapter_13 from "../../quizzes/VocabularyQuiz/data/chapter_13.json";
-import chapter_14 from "../../quizzes/VocabularyQuiz/data/chapter_14.json";
-import chapter_15 from "../../quizzes/VocabularyQuiz/data/chapter_15.json";
-import chapter_16 from "../../quizzes/VocabularyQuiz/data/chapter_16.json";
-import chapter_17 from "../../quizzes/VocabularyQuiz/data/chapter_17.json";
-import chapter_18 from "../../quizzes/VocabularyQuiz/data/chapter_18.json";
-import chapter_19 from "../../quizzes/VocabularyQuiz/data/chapter_19.json";
-import chapter_20 from "../../quizzes/VocabularyQuiz/data/chapter_20.json";
-import chapter_22 from "../../quizzes/VocabularyQuiz/data/chapter_22.json";
+import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
+import chapter_2_letters from "../../quizzes/MatchingQuiz/data/chapter_2_letters.json";
+import chapter_4 from "../../quizzes/MatchingQuiz/data/chapter_4.json";
+import chapter_5 from "../../quizzes/MatchingQuiz/data/chapter_5.json";
+import chapter_7 from "../../quizzes/MatchingQuiz/data/chapter_7.json";
+import chapter_8 from "../../quizzes/MatchingQuiz/data/chapter_8.json";
+import chapter_8_pronominal from "../../quizzes/MatchingQuiz/data/chapter_8_pronominal.json";
+import chapter_9 from "../../quizzes/MatchingQuiz/data/chapter_9.json";
+import chapter_11 from "../../quizzes/MatchingQuiz/data/chapter_11.json";
+import chapter_13 from "../../quizzes/MatchingQuiz/data/chapter_13.json";
+import chapter_14 from "../../quizzes/MatchingQuiz/data/chapter_14.json";
+import chapter_15 from "../../quizzes/MatchingQuiz/data/chapter_15.json";
+import chapter_16 from "../../quizzes/MatchingQuiz/data/chapter_16.json";
+import chapter_17 from "../../quizzes/MatchingQuiz/data/chapter_17.json";
+import chapter_18 from "../../quizzes/MatchingQuiz/data/chapter_18.json";
+import chapter_19 from "../../quizzes/MatchingQuiz/data/chapter_19.json";
+import chapter_20 from "../../quizzes/MatchingQuiz/data/chapter_20.json";
+import chapter_22 from "../../quizzes/MatchingQuiz/data/chapter_22.json";
 
-import { shuffle, vocabularyQuizTitle } from "../Utils/index";
+import { shuffle, MatchingQuizTitle } from "../Utils/index";
 
 export default function QuizRegistry({ inverted }) {
   return [
+    {
+      title: "Letters",
+      chapter: 2,
+      path: URL_LETTERS,
+      render: (
+        <MatchingQuiz
+          inverted={inverted}
+          title={"Letters"}
+          questionSet={shuffle(chapter_2_letters)}
+          maxPerPage={15}
+        />
+      ),
+    },
     {
       title: "Chapter 4 Vocabulary",
       chapter: 4,
       path: URL_VOCAB_4,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(4)}
+          title={MatchingQuizTitle(4)}
           questionSet={shuffle(chapter_4)}
         />
       ),
@@ -55,9 +72,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 5,
       path: URL_VOCAB_5,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(5)}
+          title={MatchingQuizTitle(5)}
           questionSet={shuffle(chapter_5)}
         />
       ),
@@ -67,9 +84,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 7,
       path: URL_VOCAB_7,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(7)}
+          title={MatchingQuizTitle(7)}
           questionSet={shuffle(chapter_7)}
         />
       ),
@@ -79,10 +96,22 @@ export default function QuizRegistry({ inverted }) {
       chapter: 8,
       path: URL_VOCAB_8,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(8)}
+          title={MatchingQuizTitle(8)}
           questionSet={shuffle(chapter_8)}
+        />
+      ),
+    },
+    {
+      title: "Pronominal",
+      chapter: 8,
+      path: URL_PRONOMINAL,
+      render: (
+        <MatchingQuiz
+          inverted={inverted}
+          title={"Pronominal"}
+          questionSet={shuffle(chapter_8_pronominal)}
         />
       ),
     },
@@ -91,9 +120,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 9,
       path: URL_VOCAB_9,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(9)}
+          title={MatchingQuizTitle(9)}
           questionSet={shuffle(chapter_9)}
         />
       ),
@@ -103,9 +132,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 11,
       path: URL_VOCAB_11,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(11)}
+          title={MatchingQuizTitle(11)}
           questionSet={shuffle(chapter_11)}
         />
       ),
@@ -121,9 +150,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 13,
       path: URL_VOCAB_13,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(13)}
+          title={MatchingQuizTitle(13)}
           questionSet={shuffle(chapter_13)}
         />
       ),
@@ -133,9 +162,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 14,
       path: URL_VOCAB_14,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(14)}
+          title={MatchingQuizTitle(14)}
           questionSet={shuffle(chapter_14)}
         />
       ),
@@ -145,9 +174,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 15,
       path: URL_VOCAB_15,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(15)}
+          title={MatchingQuizTitle(15)}
           questionSet={shuffle(chapter_15)}
         />
       ),
@@ -157,9 +186,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 16,
       path: URL_VOCAB_16,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(16)}
+          title={MatchingQuizTitle(16)}
           questionSet={shuffle(chapter_16)}
         />
       ),
@@ -169,9 +198,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 17,
       path: URL_VOCAB_17,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(17)}
+          title={MatchingQuizTitle(17)}
           questionSet={shuffle(chapter_17)}
         />
       ),
@@ -181,9 +210,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 18,
       path: URL_VOCAB_18,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(18)}
+          title={MatchingQuizTitle(18)}
           questionSet={shuffle(chapter_18)}
         />
       ),
@@ -193,9 +222,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 19,
       path: URL_VOCAB_19,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(19)}
+          title={MatchingQuizTitle(19)}
           questionSet={shuffle(chapter_19)}
         />
       ),
@@ -205,9 +234,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 20,
       path: URL_VOCAB_20,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(20)}
+          title={MatchingQuizTitle(20)}
           questionSet={shuffle(chapter_20)}
         />
       ),
@@ -217,9 +246,9 @@ export default function QuizRegistry({ inverted }) {
       chapter: 22,
       path: URL_VOCAB_22,
       render: (
-        <VocabularyQuiz
+        <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(22)}
+          title={MatchingQuizTitle(22)}
           questionSet={shuffle(chapter_22)}
         />
       ),

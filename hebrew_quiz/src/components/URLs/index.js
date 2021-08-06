@@ -3,6 +3,7 @@ export const URL_QUIZZES = '/quizzes';
 export const URL_ABOUT = '/about';
 
 // Quizzes
+export const URL_LETTERS = '/letters';
 export const URL_PRONOMINAL = '/pronominal';
 export const URL_QAL_PERFECT = '/qalperfect';
 

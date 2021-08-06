@@ -11,7 +11,7 @@ import { URL_QUIZZES } from "../../components/URLs/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 import MatchingQuestion from "../../components/MatchingQuestion";
 
-function VocabularyQuiz({ inverted, title, maxPerPage, questionSet, history }) {
+function MatchingQuiz({ inverted, title, maxPerPage, questionSet, history }) {
   const [pageNumber, setPageNumber] = useState(0);
 
   // Chop up the vocab list
@@ -46,7 +46,7 @@ function VocabularyQuiz({ inverted, title, maxPerPage, questionSet, history }) {
   );
 }
 
-VocabularyQuiz.propTypes = {
+MatchingQuiz.propTypes = {
   inverted: PropTypes.bool,
   title: PropTypes.string,
   maxPerPage: PropTypes.number,
@@ -54,10 +54,10 @@ VocabularyQuiz.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-VocabularyQuiz.defaultProps = {
+MatchingQuiz.defaultProps = {
   inverted: true,
   title: "Vocabulary quiz",
   maxPerPage: 5,
 };
 
-export default withRouter(VocabularyQuiz);
+export default withRouter(MatchingQuiz);

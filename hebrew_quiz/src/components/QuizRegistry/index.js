@@ -2,6 +2,8 @@ import {
   URL_LETTERS,
   URL_QAL_PERFECT,
   URL_VOCAB_4,
+  URL_NOUN_PARSING,
+  URL_CONJUNCTION,
   URL_VOCAB_5,
   URL_VOCAB_7,
   URL_VOCAB_8,
@@ -22,6 +24,8 @@ import QalPerfect from "../../quizzes/QalPerfectQatal/index";
 import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
 import chapter_2_letters from "../../quizzes/MatchingQuiz/data/chapter_2_letters.json";
 import chapter_4 from "../../quizzes/MatchingQuiz/data/chapter_4.json";
+import chapter_4_nouns from "../../quizzes/MatchingQuiz/data/chapter_4_nouns.json";
+import chapter_4_conjunction from "../../quizzes/MatchingQuiz/data/chapter_4_conjunction.json";
 import chapter_5 from "../../quizzes/MatchingQuiz/data/chapter_5.json";
 import chapter_7 from "../../quizzes/MatchingQuiz/data/chapter_7.json";
 import chapter_8 from "../../quizzes/MatchingQuiz/data/chapter_8.json";
@@ -64,6 +68,34 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(4)}
           questionSet={shuffle(chapter_4)}
+        />
+      ),
+    },
+    {
+      title: "Noun Parsing",
+      chapter: 4,
+      path: URL_NOUN_PARSING,
+      render: (
+        <MatchingQuiz
+          inverted={inverted}
+          title={"Noun Parsing"}
+          subtitle={"Match the noun with the correct form"}
+          questionSet={shuffle(chapter_4_nouns)}
+          maxPerPage={10}
+        />
+      ),
+    },
+    {
+      title: "Conjunction",
+      chapter: 4,
+      path: URL_CONJUNCTION,
+      render: (
+        <MatchingQuiz
+          inverted={inverted}
+          title={"Conjunction"}
+          subtitle={"Match the conjunction with the word"}
+          questionSet={shuffle(chapter_4_conjunction)}
+          maxPerPage={10}
         />
       ),
     },

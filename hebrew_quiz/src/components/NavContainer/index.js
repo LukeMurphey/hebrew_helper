@@ -1,6 +1,4 @@
 import {
-  HashRouter as Router,
-  Route,
   useRouteMatch,
   Link,
 } from "react-router-dom";

@@ -20,7 +20,7 @@ import {
   URL_VOCAB_22,
   URL_PRONOMINAL,
 } from "../URLs/index";
-import QalPerfect from "../../quizzes/QalPerfectQatal/index";
+import ParsingQuiz from "../../quizzes/ParsingQuiz/index";
 import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
 import chapter_2_letters from "../../quizzes/MatchingQuiz/data/chapter_2_letters.json";
 import chapter_4 from "../../quizzes/MatchingQuiz/data/chapter_4.json";
@@ -41,6 +41,7 @@ import chapter_18 from "../../quizzes/MatchingQuiz/data/chapter_18.json";
 import chapter_19 from "../../quizzes/MatchingQuiz/data/chapter_19.json";
 import chapter_20 from "../../quizzes/MatchingQuiz/data/chapter_20.json";
 import chapter_22 from "../../quizzes/MatchingQuiz/data/chapter_22.json";
+import qal_perfect_qatal from "../../quizzes/ParsingQuiz/questions.json";
 
 import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 
@@ -175,7 +176,7 @@ export default function QuizRegistry({ inverted }) {
       title: "Qal Perfects (Qatal)",
       chapter: 12,
       path: URL_QAL_PERFECT,
-      render: <QalPerfect inverted={inverted} />,
+      render: <ParsingQuiz inverted={inverted} questionSet={shuffle(qal_perfect_qatal)} title={"Qal Perfect (Qatal)"} />,
     },
     {
       title: "Chapter 13 Vocabulary",

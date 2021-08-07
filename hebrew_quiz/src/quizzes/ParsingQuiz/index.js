@@ -3,14 +3,9 @@ import PropTypes from "prop-types";
 import VerbParsingQuestion from "../../components/Verb/VerbParsingQuestion";
 import { URL_QUIZZES } from "../../components/URLs/index";
 import { withRouter } from "react-router-dom";
-import questions from "./questions.json";
-import { shuffle } from "../../components/Utils/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 
-// Shuffle the questions so that users don't see the exact same questions every time
-const shuffledQuestions = shuffle(questions);
-
-function QalPerfectQatal({ subtitle, inverted, history, title }) {
+function ParsingQuiz({ subtitle, inverted, history, title, questionSet }) {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
 
@@ -18,8 +13,8 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
 
   // If the question is within the list, then get it
   // Otherwise, if it after the end then we have completed the quiz
-  if (questionNumber < shuffledQuestions.length) {
-    question = shuffledQuestions[questionNumber];
+  if (questionNumber < questionSet.length) {
+    question = questionSet[questionNumber];
   }
 
   return (
@@ -27,7 +22,7 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
       {!question && (
         <QuizCompleteDialog
           quizName={title}
-          correctAnswers={shuffledQuestions.length}
+          correctAnswers={questionSet.length}
           incorrectAnswers={incorrectAnswers}
         />
       )}
@@ -37,7 +32,7 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
           subtitle={subtitle}
           question={`Parse this verb: ${question["question"]}`}
           answer={question["answer"]}
-          percent={100 * (questionNumber / questions.length)}
+          percent={100 * (questionNumber / questionSet.length)}
           inverted={inverted}
           onClose={() => history.push(URL_QUIZZES)}
           onAnswered={(correct) => {
@@ -54,15 +49,15 @@ function QalPerfectQatal({ subtitle, inverted, history, title }) {
   );
 }
 
-QalPerfectQatal.propTypes = {
-  title: PropTypes.string,
+ParsingQuiz.propTypes = {
+  title: PropTypes.string.isRequired,
   inverted: PropTypes.bool,
   history: PropTypes.object.isRequired,
+  questionSet: PropTypes.arrayOf(PropTypes.node).isRequired,
 };
 
-QalPerfectQatal.defaultProps = {
+ParsingQuiz.defaultProps = {
   inverted: false,
-  title: "Qal Perfect (Qatal)",
 };
 
-export default withRouter(QalPerfectQatal);
+export default withRouter(ParsingQuiz);

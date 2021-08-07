@@ -38,7 +38,7 @@ function QuizQuestion({
               <p>
                 The answer is not correct.
                 {correctAnswer !== null &&
-                  `The correct answer is "${correctAnswer}"`}
+                  ` The correct answer is "${correctAnswer}"`}
               </p>
             </Message>
             <Button color="red" onClick={() => onSubmit()}>

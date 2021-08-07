@@ -17,36 +17,79 @@ import {
   getNumberText,
 } from "../Hebrew/index";
 
-function ParsingAnswer({ inverted, onChange, person, gender, number, disabled }) {
+const genderOptions = [
+  { key: PERSON_FIRST, text: getPersonText(PERSON_FIRST), value: PERSON_FIRST },
+  {
+    key: PERSON_SECOND,
+    text: getPersonText(PERSON_SECOND),
+    value: PERSON_SECOND,
+  },
+  { key: PERSON_THIRD, text: getPersonText(PERSON_THIRD), value: PERSON_THIRD },
+];
 
+function ParsingAnswer({
+  inverted,
+  onChange,
+  person,
+  gender,
+  number,
+  disabled,
+  allowMultiplePerson,
+}) {
   return (
     <>
-      <Dropdown disabled={disabled} selection text={getPersonText(person)} style={{marginRight: 16}} >
-        <Dropdown.Menu>
-          <Dropdown.Item
-            active={person === PERSON_FIRST}
-            text="First"
-            onClick={() => {
-              onChange(PERSON_FIRST, gender, number);
-            }}
-          />
-          <Dropdown.Item
-            active={person === PERSON_SECOND}
-            text="Second"
-            onClick={() => {
-              onChange(PERSON_SECOND, gender, number);
-            }}
-          />
-          <Dropdown.Item
-            active={person === PERSON_THIRD}
-            text="Third"
-            onClick={() => {
-              onChange(PERSON_THIRD, gender, number);
-            }}
-          />
-        </Dropdown.Menu>
-      </Dropdown>
-      <Dropdown disabled={disabled} selection text={getGenderText(gender)} style={{marginRight: 16}}>
+      {allowMultiplePerson === true && (
+        <Dropdown
+          disabled={disabled}
+          multiple
+          selection
+          options={genderOptions}
+          style={{ marginRight: 16 }}
+          onChange={(e, d) => {
+            onChange(d.value, gender, number);
+          }}
+          value={person}
+        />
+      )}
+      {allowMultiplePerson === false && (
+        <Dropdown
+          disabled={disabled}
+          multiple
+          selection
+          text={getPersonText(person)}
+          style={{ marginRight: 16 }}
+        >
+          <Dropdown.Menu>
+            <Dropdown.Item
+              active={person === PERSON_FIRST}
+              text="First"
+              onClick={() => {
+                onChange(PERSON_FIRST, gender, number);
+              }}
+            />
+            <Dropdown.Item
+              active={person === PERSON_SECOND}
+              text="Second"
+              onClick={() => {
+                onChange(PERSON_SECOND, gender, number);
+              }}
+            />
+            <Dropdown.Item
+              active={person === PERSON_THIRD}
+              text="Third"
+              onClick={() => {
+                onChange(PERSON_THIRD, gender, number);
+              }}
+            />
+          </Dropdown.Menu>
+        </Dropdown>
+      )}
+      <Dropdown
+        disabled={disabled}
+        selection
+        text={getGenderText(gender)}
+        style={{ marginRight: 16 }}
+      >
         <Dropdown.Menu>
           <Dropdown.Item
             active={gender === GENDER_MASC}
@@ -111,8 +154,15 @@ ParsingAnswer.propTypes = {
   inverted: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  allowMultiplePerson: PropTypes.bool,
   person: PropTypes.oneOf([PERSON_FIRST, PERSON_SECOND, PERSON_THIRD, null]),
-  gender: PropTypes.oneOf([GENDER_MASC, GENDER_FEM, GENDER_COM, GENDER_NEUT, null]),
+  gender: PropTypes.oneOf([
+    GENDER_MASC,
+    GENDER_FEM,
+    GENDER_COM,
+    GENDER_NEUT,
+    null,
+  ]),
   number: PropTypes.oneOf([NUMBER_SINGULAR, NUMBER_PLURAL, NUMBER_DUAL, null]),
 };
 
@@ -122,6 +172,7 @@ ParsingAnswer.defaultProps = {
   person: null,
   gender: null,
   number: null,
+  allowMultiplePerson: false,
 };
 
 export default ParsingAnswer;

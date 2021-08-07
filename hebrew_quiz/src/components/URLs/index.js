@@ -6,9 +6,9 @@ export const URL_ABOUT = '/about';
 export const URL_LETTERS = '/letters';
 export const URL_PRONOMINAL = '/pronominal';
 export const URL_QAL_PERFECT = '/qalperfect';
+export const URL_QAL_IMPERFECT = '/qalimperfect';
 export const URL_NOUN_PARSING = '/noun_parsing';
 export const URL_CONJUNCTION = '/conjunction';
-
 
 // Vocab
 export const URL_VOCAB_4 = '/vocab_4';

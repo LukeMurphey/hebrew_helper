@@ -1,9 +1,9 @@
 /**
  * This offers a verb parsing question. This users several other components:
  *    QuizQuestion: offers the question alone with the submit buttons
- *    Verb/ParsingAnswer: offers the dropdowns for selecting the verb parsing
+ *    VerbParsingAnswer: offers the dropdowns for selecting the verb parsing
  */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import QuizQuestion from "../QuizQuestion";
@@ -21,6 +21,7 @@ function VerbParsingQuestion({
   onAnswered,
   question,
   answer,
+  allowMultiplePerson,
 }) {
   const [userAnswer, setUserAnswer] = useState(null);
   const [answerStatus, setAnswerStatus] = useState(UNANSWERED);
@@ -64,6 +65,13 @@ function VerbParsingQuestion({
           // Stop if the user hasn't filled out enough of the answer
           // Otherwise, set the answer status
           else if (answerStatus === UNANSWERED && person !== null && gender !== null && number !== null) {
+            // TODO evaluate multi answers
+            /*
+            let answer = 
+            if(Array.isArray(person) {
+
+            }
+            */
             setAnswerStatus(userAnswer === answer ? CORRECT : INCORRECT);
           }
         }}
@@ -79,13 +87,27 @@ function VerbParsingQuestion({
             setNumber(n);
 
             if (p && g && n) {
-              setUserAnswer(`${p}${g}${n}`);
+              // If the person is multiple, then format accordingly
+              if(Array.isArray(p)){
+                // Sort the answer such that the number is first
+                let personSorted = p.sort();
+
+                // Form the answers
+                let answersArray = personSorted.map((entry) => `${entry}${g}${n}`);
+
+                // Make the list into a string
+                setUserAnswer(answersArray.join('/'));
+              }
+              else{
+                setUserAnswer(`${p}${g}${n}`);
+              }
             }
           }}
           person={person}
           gender={gender}
           number={number}
           disabled={answerStatus !== UNANSWERED}
+          allowMultiplePerson={allowMultiplePerson}
         />
       </QuizQuestion>
     </QuizContainer>
@@ -101,11 +123,13 @@ VerbParsingQuestion.propTypes = {
   percent: PropTypes.number,
   onClose: PropTypes.func,
   onAnswered: PropTypes.func,
+  allowMultiplePerson: PropTypes.bool,
 };
 
 VerbParsingQuestion.defaultProps = {
   inverted: false,
   percent: null,
+  allowMultiplePerson: false,
 };
 
 export default withRouter(VerbParsingQuestion);

@@ -1,3 +1,12 @@
+/**
+ * This quiz offers the ability to parse verbs.
+ * 
+ *    1) ParsingQuiz: takes a list of verb parsing questions and present them one-by-one
+ *    2) VerbParsingQuestion: presents one parsing question to the user
+ *    3) ParsingAnswer: presents the UI for selecting a parse and communicates it back up to the parent
+ * 
+ * The answer is evaluated for correctness in the QuizQuestion::onSubmit in VerbParsingQuestion.
+ */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import VerbParsingQuestion from "../../components/Verb/VerbParsingQuestion";
@@ -5,7 +14,7 @@ import { URL_QUIZZES } from "../../components/URLs/index";
 import { withRouter } from "react-router-dom";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 
-function ParsingQuiz({ subtitle, inverted, history, title, questionSet }) {
+function ParsingQuiz({ subtitle, inverted, history, title, questionSet, allowMultiplePerson }) {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
 
@@ -34,6 +43,7 @@ function ParsingQuiz({ subtitle, inverted, history, title, questionSet }) {
           answer={question["answer"]}
           percent={100 * (questionNumber / questionSet.length)}
           inverted={inverted}
+          allowMultiplePerson={allowMultiplePerson}
           onClose={() => history.push(URL_QUIZZES)}
           onAnswered={(correct) => {
             if (correct) {
@@ -54,10 +64,12 @@ ParsingQuiz.propTypes = {
   inverted: PropTypes.bool,
   history: PropTypes.object.isRequired,
   questionSet: PropTypes.arrayOf(PropTypes.node).isRequired,
+  allowMultiplePerson: PropTypes.bool,
 };
 
 ParsingQuiz.defaultProps = {
   inverted: false,
+  allowMultiplePerson: false,
 };
 
 export default withRouter(ParsingQuiz);

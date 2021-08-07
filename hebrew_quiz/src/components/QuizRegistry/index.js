@@ -1,6 +1,7 @@
 import {
   URL_LETTERS,
   URL_QAL_PERFECT,
+  URL_QAL_IMPERFECT,
   URL_VOCAB_4,
   URL_NOUN_PARSING,
   URL_CONJUNCTION,
@@ -43,6 +44,7 @@ import chapter_19 from "../../data/chapter_19.json";
 import chapter_20 from "../../data/chapter_20.json";
 import chapter_22 from "../../data/chapter_22.json";
 import qal_perfect_qatal from "../../data/chapter_12_qal_perfect_qatal.json";
+import qal_imperfect_qatal from "../../data/chapter_13_qal_imperfect_qatal.json";
 
 import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 
@@ -190,6 +192,12 @@ export default function QuizRegistry({ inverted }) {
           questionSet={shuffle(chapter_13)}
         />
       ),
+    },
+    {
+      title: "Qal Imperfects (Qatal)",
+      chapter: 12,
+      path: URL_QAL_IMPERFECT,
+      render: <ParsingQuiz inverted={inverted} questionSet={shuffle(qal_imperfect_qatal)} allowMultiplePerson={true} title={"Qal Imperfect (Qatal)"} />,
     },
     {
       title: "Chapter 14 Vocabulary",

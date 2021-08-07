@@ -1,0 +1,34 @@
+[
+    {
+        "question": "יִקְטֹל",
+        "answer": "3ms"
+    },
+    {
+        "question": "תִּקְטֹל",
+        "answer": "3fs/2fs"
+    },
+    {
+        "question": "תִּקְטְלִי",
+        "answer": "2fs"
+    },
+    {
+        "question": "אֶקְטֹל",
+        "answer": "1cs"
+    },
+    {
+        "question": "יִקְטְלוּ",
+        "answer": "3mp"
+    },
+    {
+        "question": "תִּקְטֹלְנָה",
+        "answer": "3fp/2fp"
+    },
+    {
+        "question": "תִּקְטְלוּ",
+        "answer": "2mp"
+    },
+    {
+        "question": "נִקְטֹל",
+        "answer": "1cp"
+    }
+]

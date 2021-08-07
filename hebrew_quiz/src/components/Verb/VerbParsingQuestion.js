@@ -3,7 +3,7 @@
  *    QuizQuestion: offers the question alone with the submit buttons
  *    Verb/ParsingAnswer: offers the dropdowns for selecting the verb parsing
  */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import QuizQuestion from "../QuizQuestion";
@@ -39,21 +39,31 @@ function VerbParsingQuestion({
       <QuizQuestion
         title={question}
         onSubmit={() => {
-          if(answerStatus === CORRECT ) {
+          if(answerStatus === CORRECT || answerStatus === INCORRECT) {
             // We have confirmed the answer status and now need to move to the next question
             setAnswerStatus(UNANSWERED);
 
             // Reset the answer
-            if (userAnswer === answer) {
-              setPerson(null);
-              setGender(null);
-              setNumber(null);
-            }
-
-            // Tell the caller that the question was answered and we should move to the next question
-            onAnswered(userAnswer === answer);
+            setPerson(null);
+            setGender(null);
+            setNumber(null);
           }
-          else{
+
+          // If the answer status is correct, then the user has acknowledged the correct answer and wants to move on
+          if(answerStatus === CORRECT ) {
+            // Tell the caller that the question was answered and we should move to the next question
+            onAnswered(true);
+          }
+
+          // If the answer status is incorrect, then the user has acknowledged the correct answer and wants to move on
+          if(answerStatus === INCORRECT ) {
+            // Tell the caller that the question was answered and we should move to the next question
+            onAnswered(false);
+          }
+
+          // Stop if the user hasn't filled out enough of the answer
+          // Otherwise, set the answer status
+          else if (answerStatus === UNANSWERED && person !== null && gender !== null && number !== null) {
             setAnswerStatus(userAnswer === answer ? CORRECT : INCORRECT);
           }
         }}
@@ -75,7 +85,7 @@ function VerbParsingQuestion({
           person={person}
           gender={gender}
           number={number}
-          disabled={answerStatus === CORRECT}
+          disabled={answerStatus !== UNANSWERED}
         />
       </QuizQuestion>
     </QuizContainer>

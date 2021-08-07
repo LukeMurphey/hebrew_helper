@@ -22,26 +22,27 @@ import {
 } from "../URLs/index";
 import ParsingQuiz from "../../quizzes/ParsingQuiz/index";
 import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
-import chapter_2_letters from "../../quizzes/MatchingQuiz/data/chapter_2_letters.json";
-import chapter_4 from "../../quizzes/MatchingQuiz/data/chapter_4.json";
-import chapter_4_nouns from "../../quizzes/MatchingQuiz/data/chapter_4_nouns.json";
-import chapter_4_conjunction from "../../quizzes/MatchingQuiz/data/chapter_4_conjunction.json";
-import chapter_5 from "../../quizzes/MatchingQuiz/data/chapter_5.json";
-import chapter_7 from "../../quizzes/MatchingQuiz/data/chapter_7.json";
-import chapter_8 from "../../quizzes/MatchingQuiz/data/chapter_8.json";
-import chapter_8_pronominal from "../../quizzes/MatchingQuiz/data/chapter_8_pronominal.json";
-import chapter_9 from "../../quizzes/MatchingQuiz/data/chapter_9.json";
-import chapter_11 from "../../quizzes/MatchingQuiz/data/chapter_11.json";
-import chapter_13 from "../../quizzes/MatchingQuiz/data/chapter_13.json";
-import chapter_14 from "../../quizzes/MatchingQuiz/data/chapter_14.json";
-import chapter_15 from "../../quizzes/MatchingQuiz/data/chapter_15.json";
-import chapter_16 from "../../quizzes/MatchingQuiz/data/chapter_16.json";
-import chapter_17 from "../../quizzes/MatchingQuiz/data/chapter_17.json";
-import chapter_18 from "../../quizzes/MatchingQuiz/data/chapter_18.json";
-import chapter_19 from "../../quizzes/MatchingQuiz/data/chapter_19.json";
-import chapter_20 from "../../quizzes/MatchingQuiz/data/chapter_20.json";
-import chapter_22 from "../../quizzes/MatchingQuiz/data/chapter_22.json";
-import qal_perfect_qatal from "../../quizzes/ParsingQuiz/questions.json";
+
+import chapter_2_letters from "../../data/chapter_2_letters.json";
+import chapter_4 from "../../data/chapter_4.json";
+import chapter_4_nouns from "../../data/chapter_4_nouns.json";
+import chapter_4_conjunction from "../../data/chapter_4_conjunction.json";
+import chapter_5 from "../../data/chapter_5.json";
+import chapter_7 from "../../data/chapter_7.json";
+import chapter_8 from "../../data/chapter_8.json";
+import chapter_8_pronominal from "../../data/chapter_8_pronominal.json";
+import chapter_9 from "../../data/chapter_9.json";
+import chapter_11 from "../../data/chapter_11.json";
+import chapter_13 from "../../data/chapter_13.json";
+import chapter_14 from "../../data/chapter_14.json";
+import chapter_15 from "../../data/chapter_15.json";
+import chapter_16 from "../../data/chapter_16.json";
+import chapter_17 from "../../data/chapter_17.json";
+import chapter_18 from "../../data/chapter_18.json";
+import chapter_19 from "../../data/chapter_19.json";
+import chapter_20 from "../../data/chapter_20.json";
+import chapter_22 from "../../data/chapter_22.json";
+import qal_perfect_qatal from "../../data/chapter_12_qal_perfect_qatal.json";
 
 import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 

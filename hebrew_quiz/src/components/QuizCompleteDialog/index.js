@@ -17,10 +17,10 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       { index === 0 && percent > 0 && (
-        "Incorrect"
+        "✘"
       )}
       { index !== 0 && percent > 0 && (
-        "Correct"
+        "✔"
       )}
     </text>
   );

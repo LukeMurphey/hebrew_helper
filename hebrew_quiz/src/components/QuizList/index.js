@@ -58,8 +58,7 @@ function QuizList( { inverted }) {
     quizRows.push(
       <Table.Row key={index}>
         <Table.Cell>{value.chapter}</Table.Cell>
-        <Table.Cell>{value.title}</Table.Cell>
-        <Table.Cell><Link to={value.path}>Start</Link></Table.Cell>
+        <Table.Cell><Link to={value.path}>{value.title}</Link></Table.Cell>
       </Table.Row>
     );
   }
@@ -110,7 +109,6 @@ function QuizList( { inverted }) {
                 <Table.Row>
                     <Table.HeaderCell>Chapter</Table.HeaderCell>
                     <Table.HeaderCell>Title</Table.HeaderCell>
-                    <Table.HeaderCell>Description</Table.HeaderCell>
                 </Table.Row>
             </Table.Header>
             <Table.Body>

@@ -10,7 +10,7 @@ const QUIZTYPE_VOCAB = "vocab";
 const QUIZTYPE_PARADIGM = "paradigm";
 
 export function isVocab(quiz) {
-  return quiz.title.endsWith("Vocabulary");
+  return quiz.title.includes("Vocabulary");
 }
 
 export function filterQuizzes(quizzes, quizType) {

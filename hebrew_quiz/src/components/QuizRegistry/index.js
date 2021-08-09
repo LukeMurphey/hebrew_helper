@@ -104,7 +104,7 @@ export default function QuizRegistry({ inverted }) {
       ),
     },
     {
-      title: "Chapter 5 Vocabulary",
+      title: "Chapter 5 Vocabulary (including this/that)",
       chapter: 5,
       path: URL_VOCAB_5,
       render: (

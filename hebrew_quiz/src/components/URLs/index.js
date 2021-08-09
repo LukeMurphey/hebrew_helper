@@ -9,6 +9,7 @@ export const URL_QAL_PERFECT = '/qalperfect';
 export const URL_QAL_IMPERFECT = '/qalimperfect';
 export const URL_NOUN_PARSING = '/noun_parsing';
 export const URL_CONJUNCTION = '/conjunction';
+export const URL_FORMS_19 = '/forms_19';
 
 // Vocab
 export const URL_VOCAB_4 = '/vocab_4';

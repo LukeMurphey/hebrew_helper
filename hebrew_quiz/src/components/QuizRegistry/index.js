@@ -17,6 +17,7 @@ import {
   URL_VOCAB_17,
   URL_VOCAB_18,
   URL_VOCAB_19,
+  URL_FORMS_19,
   URL_VOCAB_20,
   URL_VOCAB_22,
   URL_PRONOMINAL,
@@ -41,6 +42,7 @@ import chapter_16 from "../../data/chapter_16.json";
 import chapter_17 from "../../data/chapter_17.json";
 import chapter_18 from "../../data/chapter_18.json";
 import chapter_19 from "../../data/chapter_19.json";
+import chapter_19_forms from "../../data/chapter_19_forms.json";
 import chapter_20 from "../../data/chapter_20.json";
 import chapter_22 from "../../data/chapter_22.json";
 import qal_perfect_qatal from "../../data/chapter_12_qal_perfect_qatal.json";
@@ -268,6 +270,19 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(19)}
           questionSet={shuffle(chapter_19)}
+        />
+      ),
+    },
+    {
+      title: "Piel, Pual, and Hithpael",
+      chapter: 19,
+      path: URL_FORMS_19,
+      render: (
+        <MatchingQuiz
+          inverted={inverted}
+          title={vocabularyQuizTitle(19)}
+          questionSet={chapter_19_forms}
+          maxPerPage={4}
         />
       ),
     },

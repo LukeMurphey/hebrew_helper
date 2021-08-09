@@ -1,8 +1,5 @@
 /**
  * This component provides a way to provide a matching quiz of words to definitions.
- *
- * Some caveats:
- *    * This doesn't support quizzes where the same question text is in the answers list more than once.
  */
 import React, { useState, useEffect } from "react";
 import { Grid, Divider, Segment, Button } from "semantic-ui-react";
@@ -13,9 +10,7 @@ import QuizQuestion from "../QuizQuestion";
 import { shuffle } from "../Utils/index";
 
 // TODOs:
-// support progress bar
 // fix warnings
-// mark incorrect
 
 function MatchingQuestion({
   inverted,
@@ -45,13 +40,18 @@ function MatchingQuestion({
     return completedAnswers.includes(i);
   }
 
-  function getIndexOfAnswer(i) {
+  function getIndexOfAnswers(i) {
     // Get the question for the index
     const question = shuffledQuestions[i];
 
-    return shuffledAnswers.findIndex(
-      (entry) => entry.definition === question.definition
-    );
+    // Get the indexes
+    const answersIndexes = shuffledAnswers.reduce((a, e, i) => {
+      if (e.definition === question.definition)
+          a.push(i);
+      return a;
+    }, []);
+    
+    return answersIndexes;
   }
 
   // Handle selection of answers
@@ -59,10 +59,10 @@ function MatchingQuestion({
     // Evaluate the result if both an answer and question have been selected
     if (selectedQuestion !== null && selectedAnswer !== null) {
       // Determine what the correct answer is
-      const correctAnswerIndex = getIndexOfAnswer(selectedQuestion);
+      const correctAnswerIndexes = getIndexOfAnswers(selectedQuestion);
 
       // If correct, then update the UI accordingly
-      if (correctAnswerIndex === selectedAnswer) {
+      if (correctAnswerIndexes.includes(selectedAnswer)) {
         // Add to the correct list
         setCompletedQuestions(completedQuestions.concat([selectedQuestion]));
         setCompletedAnswers(completedAnswers.concat([selectedAnswer]));

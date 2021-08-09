@@ -16,4 +16,3 @@ There is a PDF at https://hebrewsyntax.org/bbh2/bbh2_study_guide.pdf that can be
 ## Limitations
 
 * Parsing quizzes that have multiple answers due to supporting more than one person (e.g. the parse could be both second and third person) need to have the answer listed in the order of the persons. The answer of "2fp/3fp" will work but specifying the answer of "3fp/2fp" won't match correctly since the UI will always put the persons in order.
-* The quizzes don't work yet for those that the same answer more than once. The answers must be unique.

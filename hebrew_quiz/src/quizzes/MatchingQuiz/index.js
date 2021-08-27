@@ -1,8 +1,5 @@
 /**
  * This component provides a way to provide a matching quiz of words to definitions.
- *
- * Some caveats:
- *    * This doesn't support quizzes where the same question text is in the answers list more than once.
  */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";

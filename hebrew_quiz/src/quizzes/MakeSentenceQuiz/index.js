@@ -23,8 +23,10 @@ function MakeSentenceQuiz({ inverted, title, questionSet, history }) {
           sentence={questionSet[pageNumber].sentence}
           answer={questionSet[pageNumber].answer}
           onClose={() => history.push(URL_QUIZZES)}
-          onAnswered={() => {
-            setPageNumber(pageNumber + 1);
+          onAnswered={(correct) => {
+            if(correct){
+                setPageNumber(pageNumber + 1);
+            }
           }}
           percent={100 * (pageNumber / questionSet.length)}
         />

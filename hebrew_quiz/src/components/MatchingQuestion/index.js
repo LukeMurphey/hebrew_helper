@@ -96,8 +96,6 @@ function MatchingQuestion({
     }
   }, [completedAnswers]);
 
-  console.log("rendering MatchingQuestion", questionSet)
-
   return (
     <QuizContainer
       title={title}

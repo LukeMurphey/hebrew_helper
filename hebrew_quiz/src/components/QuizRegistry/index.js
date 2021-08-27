@@ -21,10 +21,13 @@ import {
   URL_VOCAB_20,
   URL_VOCAB_22,
   URL_PRONOMINAL,
+  URL_BASIC_READINGS,
 } from "../URLs/index";
 import ParsingQuiz from "../../quizzes/ParsingQuiz/index";
 import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
+import MakeSentenceQuestion from "../../components/MakeSentenceQuestion/index";
 
+import genesis_1 from "../../data//genesis_1.json";
 import chapter_2_letters from "../../data/chapter_2_letters.json";
 import chapter_4 from "../../data/chapter_4.json";
 import chapter_4_nouns from "../../data/chapter_4_nouns.json";
@@ -52,6 +55,19 @@ import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 
 export default function QuizRegistry({ inverted }) {
   return [
+    {
+      title: "Genesis 1",
+      chapter: 1,
+      path: URL_BASIC_READINGS, 
+      render: (
+        <MakeSentenceQuestion
+          inverted={inverted}
+          title={"Create Genesis 1"}
+          sentence={genesis_1[0].sentence}
+          answer={genesis_1[0].answer}
+        />
+      ),
+    },
     {
       title: "Letters",
       chapter: 2,
@@ -280,7 +296,7 @@ export default function QuizRegistry({ inverted }) {
       render: (
         <MatchingQuiz
           inverted={inverted}
-          title={vocabularyQuizTitle(19)}
+          title={"Piel, Pual, and Hithpael"}
           questionSet={chapter_19_forms}
           maxPerPage={4}
         />

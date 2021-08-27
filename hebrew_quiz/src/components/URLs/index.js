@@ -4,6 +4,7 @@ export const URL_ABOUT = '/about';
 
 // Quizzes
 export const URL_LETTERS = '/letters';
+export const URL_BASIC_READINGS = '/basic_readings';
 export const URL_PRONOMINAL = '/pronominal';
 export const URL_QAL_PERFECT = '/qalperfect';
 export const URL_QAL_IMPERFECT = '/qalimperfect';

@@ -1,3 +1,14 @@
+/**
+ * This component provides a single quiz question.
+ * 
+ * There are several props you will want to use:
+ *   onSubmit: providing this will cause the question to show a "submit" button. The callback will be called when the
+ *             user pressed the button.
+ *   answerStatus: indicates if the answer was correct, incorrect, or unanswered. This causes the dialog to show a
+ *                 little green or red banner telling they got it right/wrong.
+ *   correctAnswer: the string that should be shown when the user gets the answer wrong
+ */
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Header, Segment, Button, Message } from "semantic-ui-react";

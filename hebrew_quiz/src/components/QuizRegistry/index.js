@@ -25,7 +25,7 @@ import {
 } from "../URLs/index";
 import ParsingQuiz from "../../quizzes/ParsingQuiz/index";
 import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
-import MakeSentenceQuestion from "../../components/MakeSentenceQuestion/index";
+import MakeSentenceQuiz from "../../quizzes/MakeSentenceQuiz/index";
 
 import genesis_1 from "../../data//genesis_1.json";
 import chapter_2_letters from "../../data/chapter_2_letters.json";
@@ -60,11 +60,10 @@ export default function QuizRegistry({ inverted }) {
       chapter: 1,
       path: URL_BASIC_READINGS, 
       render: (
-        <MakeSentenceQuestion
+        <MakeSentenceQuiz
           inverted={inverted}
           title={"Create Genesis 1"}
-          sentence={genesis_1[0].sentence}
-          answer={genesis_1[0].answer}
+          questionSet={genesis_1}
         />
       ),
     },

@@ -27,7 +27,7 @@ import ParsingQuiz from "../../quizzes/ParsingQuiz/index";
 import MatchingQuiz from "../../quizzes/MatchingQuiz/index";
 import MakeSentenceQuiz from "../../quizzes/MakeSentenceQuiz/index";
 
-import genesis_1 from "../../data//genesis_1.json";
+import genesis_1_shema from "../../data//genesis_1_shema.json";
 import chapter_2_letters from "../../data/chapter_2_letters.json";
 import chapter_4 from "../../data/chapter_4.json";
 import chapter_4_nouns from "../../data/chapter_4_nouns.json";
@@ -56,14 +56,14 @@ import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 export default function QuizRegistry({ inverted }) {
   return [
     {
-      title: "Genesis 1",
+      title: "Passage Memorization (Gen 1 and Dt. 6)",
       chapter: 1,
       path: URL_BASIC_READINGS, 
       render: (
         <MakeSentenceQuiz
           inverted={inverted}
-          title={"Create Genesis 1"}
-          questionSet={genesis_1}
+          title={"Test your memorization of Genesis and Deuteronomy 6:4-5"}
+          questionSet={genesis_1_shema}
         />
       ),
     },

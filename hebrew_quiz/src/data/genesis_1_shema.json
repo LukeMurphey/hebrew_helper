@@ -1,0 +1,17 @@
+[
+    {
+      "sentence": "In the beginning, God created the heavens and the earth",
+      "answer": "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ",
+      "title": "Genesis 1"
+    },
+    {
+      "sentence": "Hear, O Israel: The Lord our God, the Lord is one.",
+      "answer": "שְׁמַ֖ע יִשְׂרָאֵ֑ל יְהוָ֥ה אֱלֹהֵ֖ינוּ יְהוָ֥ה׀ אֶחָֽד",
+      "title": "Deuteronomy 6:4"
+    },
+    {
+      "sentence": "Love the Lord your God with all your heart and with all your soul and with all your strength.",
+      "answer": "וְאָ֣הַבְתָּ֔ אֵ֖ת יְהוָ֣ה אֱלֹהֶ֑יךָ בְּכָל־ לְבָבְךָ֥ וּבְכָל־ נַפְשְׁךָ֖ וּבְכָל־ מְאֹדֶֽךָ",
+      "title": "Deuteronomy 6:5"
+    }
+]

@@ -19,7 +19,7 @@ function MakeSentenceQuiz({ inverted, title, questionSet, history }) {
       {pageNumber < questionSet.length && (
         <MakeSentenceQuestion
           inverted={inverted}
-          title={title}
+          title={`Construct ${questionSet[pageNumber].title}`}
           sentence={questionSet[pageNumber].sentence}
           answer={questionSet[pageNumber].answer}
           onClose={() => history.push(URL_QUIZZES)}

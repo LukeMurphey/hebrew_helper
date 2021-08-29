@@ -56,7 +56,7 @@ import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 export default function QuizRegistry({ inverted }) {
   return [
     {
-      title: "Passage Memorization (Gen 1 and Dt. 6)",
+      title: "Passage Memorization (Gen. 1 and Dt. 6)",
       chapter: 1,
       path: URL_BASIC_READINGS, 
       render: (

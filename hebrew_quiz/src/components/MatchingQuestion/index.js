@@ -109,7 +109,7 @@ function MatchingQuestion({
       >
         <Segment placeholder>
           <Grid columns={2} stackable textAlign="center">
-            <Divider vertical>Match These</Divider>
+            <Divider vertical>Click to Match</Divider>
 
             <Grid.Row verticalAlign="middle">
               <Grid.Column>

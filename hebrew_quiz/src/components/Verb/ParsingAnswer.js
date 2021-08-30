@@ -37,7 +37,7 @@ function ParsingAnswer({
   allowMultiplePerson,
 }) {
   return (
-    <>
+    <div style={{ height: 32, display: "flex", flexDirection: "row" }}>
       {allowMultiplePerson === true && (
         <Dropdown
           disabled={disabled}
@@ -84,69 +84,73 @@ function ParsingAnswer({
           </Dropdown.Menu>
         </Dropdown>
       )}
-      <Dropdown
-        disabled={disabled}
-        selection
-        text={getGenderText(gender)}
-        style={{ marginRight: 16 }}
-      >
-        <Dropdown.Menu>
-          <Dropdown.Item
-            active={gender === GENDER_MASC}
-            text="Masculine"
-            onClick={() => {
-              onChange(person, GENDER_MASC, number);
-            }}
-          />
-          <Dropdown.Item
-            active={gender === GENDER_FEM}
-            text="Feminine"
-            onClick={() => {
-              onChange(person, GENDER_FEM, number);
-            }}
-          />
-          <Dropdown.Item
-            active={gender === GENDER_COM}
-            text="Common"
-            onClick={() => {
-              onChange(person, GENDER_COM, number);
-            }}
-          />
-          <Dropdown.Item
-            active={gender === GENDER_NEUT}
-            text="Neuter"
-            onClick={() => {
-              onChange(person, GENDER_NEUT, number);
-            }}
-          />
-        </Dropdown.Menu>
-      </Dropdown>
-      <Dropdown disabled={disabled} selection text={getNumberText(number)}>
-        <Dropdown.Menu>
-          <Dropdown.Item
-            active={number === NUMBER_SINGULAR}
-            text="Singular"
-            onClick={() => {
-              onChange(person, gender, NUMBER_SINGULAR);
-            }}
-          />
-          <Dropdown.Item
-            active={number === NUMBER_DUAL}
-            text="Dual"
-            onClick={() => {
-              onChange(person, gender, NUMBER_DUAL);
-            }}
-          />
-          <Dropdown.Item
-            active={number === NUMBER_PLURAL}
-            text="Plural"
-            onClick={() => {
-              onChange(person, gender, NUMBER_PLURAL);
-            }}
-          />
-        </Dropdown.Menu>
-      </Dropdown>
-    </>
+      <div style={{ width: 200 }}>
+        <Dropdown
+          disabled={disabled}
+          selection
+          text={getGenderText(gender)}
+          style={{ marginRight: 16 }}
+        >
+          <Dropdown.Menu>
+            <Dropdown.Item
+              active={gender === GENDER_MASC}
+              text="Masculine"
+              onClick={() => {
+                onChange(person, GENDER_MASC, number);
+              }}
+            />
+            <Dropdown.Item
+              active={gender === GENDER_FEM}
+              text="Feminine"
+              onClick={() => {
+                onChange(person, GENDER_FEM, number);
+              }}
+            />
+            <Dropdown.Item
+              active={gender === GENDER_COM}
+              text="Common"
+              onClick={() => {
+                onChange(person, GENDER_COM, number);
+              }}
+            />
+            <Dropdown.Item
+              active={gender === GENDER_NEUT}
+              text="Neuter"
+              onClick={() => {
+                onChange(person, GENDER_NEUT, number);
+              }}
+            />
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+      <div style={{ width: 200 }}>
+        <Dropdown disabled={disabled} selection text={getNumberText(number)}>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              active={number === NUMBER_SINGULAR}
+              text="Singular"
+              onClick={() => {
+                onChange(person, gender, NUMBER_SINGULAR);
+              }}
+            />
+            <Dropdown.Item
+              active={number === NUMBER_DUAL}
+              text="Dual"
+              onClick={() => {
+                onChange(person, gender, NUMBER_DUAL);
+              }}
+            />
+            <Dropdown.Item
+              active={number === NUMBER_PLURAL}
+              text="Plural"
+              onClick={() => {
+                onChange(person, gender, NUMBER_PLURAL);
+              }}
+            />
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+    </div>
   );
 }
 

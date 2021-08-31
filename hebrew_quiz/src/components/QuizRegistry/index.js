@@ -57,7 +57,7 @@ export default function QuizRegistry({ inverted }) {
   return [
     {
       title: "Passage Memorization (Gen. 1 and Dt. 6)",
-      chapter: 1,
+      chapter: 3,
       path: URL_BASIC_READINGS, 
       render: (
         <MakeSentenceQuiz

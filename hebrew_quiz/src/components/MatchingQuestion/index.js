@@ -1,5 +1,7 @@
 /**
  * This component provides a way to provide a matching quiz of words to definitions.
+ * 
+ * WARNING: there is a bug where you can have questions that can match more than one answer but not vice-versa.
  */
 import React, { useState, useEffect } from "react";
 import { Grid, Divider, Segment, Button } from "semantic-ui-react";
@@ -8,9 +10,6 @@ import { UNANSWERED, CORRECT } from "../QuizQuestion/constants";
 import QuizContainer from "../QuizContainer";
 import QuizQuestion from "../QuizQuestion";
 import { shuffle } from "../Utils/index";
-
-// TODOs:
-// fix warnings
 
 function MatchingQuestion({
   inverted,
@@ -45,11 +44,12 @@ function MatchingQuestion({
     const question = shuffledQuestions[i];
 
     // Get the indexes
-    const answersIndexes = shuffledAnswers.reduce((a, e, i) => {
-      if (e.definition === question.definition)
-          a.push(i);
-      return a;
-    }, []);
+    const answersIndexes = [];
+    shuffledAnswers.forEach((e, i) => {
+      if (e.definition === question.definition){
+        answersIndexes.push(i);
+      }
+    });
     
     return answersIndexes;
   }

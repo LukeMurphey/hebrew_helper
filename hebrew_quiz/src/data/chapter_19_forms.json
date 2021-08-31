@@ -1,66 +1,82 @@
 [
     {
-      "word": "קָטַל",
-      "definition": "Perfect"
+      "definition": "קָטַל",
+      "word": "Perfect"
     },
     {
-      "word": "קְטֹל",
-      "definition": "Infinitive construct"
+      "definition": "קְטֹל",
+      "word": "Infinitive construct"
     },
     {
-      "word": "קָטוֹל",
-      "definition": "Infinitive absolute"
+      "definition": "קָטוֹל",
+      "word": "Infinitive absolute"
     },
     {
-      "word": "קֹטֵל",
-      "definition": "Participle"
+      "definition": "קֹטֵל",
+      "word": "Participle"
     },
     {
-      "word": "קִטֵּל",
-      "definition": "Perfect"
+      "definition": "קִטֵּל",
+      "word": "Perfect"
     },
     {
-      "word": "קַטֵּל",
-      "definition": "Infinitive construct"
+      "definition": "קַטֵּל",
+      "word": "Infinitive construct"
     },
     {
-      "word": "קַטֵּל",
-      "definition": "Infinitive absolute"
+      "definition": "קַטֵּל",
+      "word": "Infinitive absolute"
     },
     {
-      "word": "מְקַטֵּל",
-      "definition": "Participle"
+      "definition": "מְקַטֵּל",
+      "word": "Participle"
     },
     {
-      "word": "קֻטַּל",
-      "definition": "Perfect"
+      "definition": "קֻטַּל",
+      "word": "Perfect"
     },
     {
-      "word": "קֻטַּל",
-      "definition": "Infinitive construct"
+      "definition": "קֻטַּל",
+      "word": "Infinitive construct"
     },
     {
-      "word": "קֻטֹּל",
-      "definition": "Infinitive absolute"
+      "definition": "קֻטֹּל",
+      "word": "Infinitive absolute"
     },
     {
-      "word": "מְקֻטָּל",
-      "definition": "Participle"
+      "definition": "מְקֻטָּל",
+      "word": "Participle"
     },
     {
-      "word": "הִתְקַטֵּל",
-      "definition": "Perfect"
+      "definition": "הִתְקַטֵּל",
+      "word": "Perfect"
     },
     {
-      "word": "הִתְקַטֵּל",
-      "definition": "Infinitive construct"
+      "definition": "הִתְקַטֵּל",
+      "word": "Infinitive construct"
     },
     {
-      "word": "הִתְקַטֵּל",
-      "definition": "Infinitive absolute"
+      "definition": "הִתְקַטֵּל",
+      "word": "Infinitive absolute"
     },
     {
-      "word": "מִתְקַטֵּל",
-      "definition": "Participle"
+      "definition": "מִתְקַטֵּל",
+      "word": "Participle"
+    },
+    {
+      "word": "Qal",
+      "definition": "\"He was great\""
+    },
+    {
+      "word": "Piel",
+      "definition": "\"He caused to be great\""
+    },
+    {
+      "word": "Pual",
+      "definition": "\"He was caused to be great\""
+    },
+    {
+      "word": "Hithpael",
+      "definition": "\"He caused himself to be great\""
     }
   ]

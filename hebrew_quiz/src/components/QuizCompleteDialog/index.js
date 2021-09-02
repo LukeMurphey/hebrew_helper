@@ -9,19 +9,29 @@ import { URL_QUIZZES } from "../URLs/index";
 const COLORS = ["#DD2230", "#4AB93A"];
 
 const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+  index,
+}) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      { index === 0 && percent > 0 && (
-        "✘"
-      )}
-      { index !== 0 && percent > 0 && (
-        "✔"
-      )}
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+    >
+      {index === 0 && percent > 0 && "✘"}
+      {index !== 0 && percent > 0 && "✔"}
     </text>
   );
 };
@@ -32,7 +42,6 @@ function QuizCompleteDialog({
   inverted,
   history,
 }) {
-
   // Create the data for the pie-chart
   const data = [
     {
@@ -42,7 +51,7 @@ function QuizCompleteDialog({
     {
       name: "Correct",
       value: correctAnswers,
-    }
+    },
   ];
 
   return (
@@ -52,25 +61,25 @@ function QuizCompleteDialog({
           You have successfully completed the quiz for {quizName}
         </Header>
         {correctAnswers !== null && incorrectAnswers !== null && (
-            <PieChart width={200} height={200}>
-              <Pie
-                data={data}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                label={renderCustomizedLabel}
-              >
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-            </PieChart>
+          <PieChart width={200} height={200}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+              label={renderCustomizedLabel}
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
         )}
         <Button onClick={() => history.push(URL_QUIZZES)}>
           Return to Quiz List

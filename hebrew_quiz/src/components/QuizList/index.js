@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Table, Header } from 'semantic-ui-react';
-import { Container, Icon, Button, Input, Message } from 'semantic-ui-react';
+import { Table, Header } from "semantic-ui-react";
+import { Container, Icon, Button, Input, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import QuizRegistry from "../QuizRegistry";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const QUIZTYPE_ALL = null;
 const QUIZTYPE_VOCAB = "vocab";
@@ -45,7 +45,7 @@ export function searchQuizzes(quizzes, search) {
   });
 }
 
-function QuizList( { inverted }) {
+function QuizList({ inverted }) {
   const [search, setSearch] = useState(null);
   const [quizType, setQuizType] = useState(QUIZTYPE_ALL);
 
@@ -58,7 +58,9 @@ function QuizList( { inverted }) {
     quizRows.push(
       <Table.Row key={index}>
         <Table.Cell>{value.chapter}</Table.Cell>
-        <Table.Cell><Link to={value.path}>{value.title}</Link></Table.Cell>
+        <Table.Cell>
+          <Link to={value.path}>{value.title}</Link>
+        </Table.Cell>
       </Table.Row>
     );
   }
@@ -105,23 +107,21 @@ function QuizList( { inverted }) {
 
       {quizRows.length >= 0 && (
         <Table basic="very" celled collapsing>
-            <Table.Header>
-                <Table.Row>
-                    <Table.HeaderCell>Chapter</Table.HeaderCell>
-                    <Table.HeaderCell>Title</Table.HeaderCell>
-                </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {quizRows}
-            </Table.Body>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Chapter</Table.HeaderCell>
+              <Table.HeaderCell>Title</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>{quizRows}</Table.Body>
         </Table>
       )}
       {quizRows.length === 0 && (
         <Message
           warning
-          header='No Matches'
-          content='No quizzes match your search.'
-          />
+          header="No Matches"
+          content="No quizzes match your search."
+        />
       )}
     </Container>
   );

@@ -54,19 +54,7 @@ import qal_imperfect_qatal from "../../data/chapter_13_qal_imperfect_qatal.json"
 import { shuffle, vocabularyQuizTitle } from "../Utils/index";
 
 export default function QuizRegistry({ inverted }) {
-  return [
-    {
-      title: "Passage Memorization (Gen. 1 and Dt. 6)",
-      chapter: 3,
-      path: URL_BASIC_READINGS, 
-      render: (
-        <MakeSentenceQuiz
-          inverted={inverted}
-          title={"Test your memorization of Genesis and Deuteronomy 6:4-5"}
-          questionSet={genesis_1_shema}
-        />
-      ),
-    },
+  const quizList = [
     {
       title: "Letters",
       chapter: 2,
@@ -77,6 +65,18 @@ export default function QuizRegistry({ inverted }) {
           title={"Letters"}
           questionSet={shuffle(chapter_2_letters)}
           maxPerPage={15}
+        />
+      ),
+    },
+    {
+      title: "Passage Memorization (Gen. 1 and Dt. 6)",
+      chapter: 3,
+      path: URL_BASIC_READINGS,
+      render: (
+        <MakeSentenceQuiz
+          inverted={inverted}
+          title={"Test your memorization of Genesis and Deuteronomy 6:4-5"}
+          questionSet={genesis_1_shema}
         />
       ),
     },
@@ -196,7 +196,13 @@ export default function QuizRegistry({ inverted }) {
       title: "Qal Perfects (Qatal)",
       chapter: 12,
       path: URL_QAL_PERFECT,
-      render: <ParsingQuiz inverted={inverted} questionSet={shuffle(qal_perfect_qatal)} title={"Qal Perfect (Qatal)"} />,
+      render: (
+        <ParsingQuiz
+          inverted={inverted}
+          questionSet={shuffle(qal_perfect_qatal)}
+          title={"Qal Perfect (Qatal)"}
+        />
+      ),
     },
     {
       title: "Chapter 13 Vocabulary",
@@ -214,7 +220,14 @@ export default function QuizRegistry({ inverted }) {
       title: "Qal Imperfects (Qatal)",
       chapter: 12,
       path: URL_QAL_IMPERFECT,
-      render: <ParsingQuiz inverted={inverted} questionSet={shuffle(qal_imperfect_qatal)} allowMultiplePerson={true} title={"Qal Imperfect (Qatal)"} />,
+      render: (
+        <ParsingQuiz
+          inverted={inverted}
+          questionSet={shuffle(qal_imperfect_qatal)}
+          allowMultiplePerson={true}
+          title={"Qal Imperfect (Qatal)"}
+        />
+      ),
     },
     {
       title: "Chapter 14 Vocabulary",
@@ -326,4 +339,9 @@ export default function QuizRegistry({ inverted }) {
       ),
     },
   ];
+
+  // Sort them by chapter
+  quizList.sort((first, second) => first.chapter - second.chapter);
+
+  return quizList;
 }

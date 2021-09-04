@@ -13,6 +13,12 @@ import MakeSentenceQuestion from "../../components/MakeSentenceQuestion/index";
 
 function MakeSentenceQuiz({ inverted, title, questionSet, onQuizDone, history }) {
   const [pageNumber, setPageNumber] = useState(0);
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+
+  // If we are done, then report the quiz status
+  if(pageNumber >= questionSet.length) {
+    onQuizDone(incorrectAnswers === 0);
+  }
 
   return (
     <>
@@ -27,8 +33,9 @@ function MakeSentenceQuiz({ inverted, title, questionSet, onQuizDone, history })
             if(correct){
                 setPageNumber(pageNumber + 1);
             }
-            // TODO report correct status
-            onQuizDone(correct);
+            if(!correct){
+              setIncorrectAnswers(incorrectAnswers+1);
+            }
           }}
           percent={100 * (pageNumber / questionSet.length)}
         />

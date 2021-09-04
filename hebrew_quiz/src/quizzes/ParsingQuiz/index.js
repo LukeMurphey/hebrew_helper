@@ -26,9 +26,9 @@ function ParsingQuiz({ subtitle, inverted, history, title, questionSet, allowMul
     question = questionSet[questionNumber];
   }
 
+  // If we are done, then report the quiz status
   if(!question) {
-    // TODO report correct status
-    onQuizDone(true);
+    onQuizDone(incorrectAnswers === 0);
   }
 
   return (

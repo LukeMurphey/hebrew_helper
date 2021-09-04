@@ -1,6 +1,6 @@
 /**
  * This component provides a way to provide a matching quiz of words to definitions.
- * 
+ *
  * WARNING: there is a bug where you can have questions that can match more than one answer but not vice-versa.
  */
 import React, { useState, useEffect } from "react";
@@ -27,6 +27,9 @@ function MatchingQuestion({
   const [completedQuestions, setCompletedQuestions] = useState([]);
   const [completedAnswers, setCompletedAnswers] = useState([]);
 
+  // Track answer status
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+
   // Shuffle both sets so that we can make sure the left and the right doesn't match
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
@@ -46,11 +49,11 @@ function MatchingQuestion({
     // Get the indexes
     const answersIndexes = [];
     shuffledAnswers.forEach((e, i) => {
-      if (e.definition === question.definition){
+      if (e.definition === question.definition) {
         answersIndexes.push(i);
       }
     });
-    
+
     return answersIndexes;
   }
 
@@ -70,13 +73,15 @@ function MatchingQuestion({
         // Unselect the existing entries
         setSelectedQuestion(null);
         setSelectedAnswer(null);
+      } else {
+        // Record that we got something wrong
+        setIncorrectAnswers(incorrectAnswers + 1);
       }
     }
   }, [selectedQuestion, selectedAnswer]);
 
   // Prepare the questions and answers
   useEffect(() => {
-    
     if (questionSet !== null) {
       // Shuffle the questions and the answers so they don't match in an obvious way
       setShuffledQuestions(shuffle([...questionSet]));
@@ -90,9 +95,13 @@ function MatchingQuestion({
   // Handle the case where the user is done matching everything
   useEffect(() => {
     // If there are no more entries, then signal that we are done
-    if(completedAnswers !== null && questionSet !== null && completedAnswers.length >= questionSet.length){
+    if (
+      completedAnswers !== null &&
+      questionSet !== null &&
+      completedAnswers.length >= questionSet.length
+    ) {
       // Send up the note that the question has been answered
-      onAnswered(CORRECT);
+      onAnswered(incorrectAnswers === 0);
     }
   }, [completedAnswers]);
 

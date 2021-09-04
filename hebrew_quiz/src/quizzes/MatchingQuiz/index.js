@@ -15,6 +15,9 @@ function MatchingQuiz({ inverted, title, maxPerPage, questionSet, onQuizDone, hi
   const pageCount = Math.ceil((1.0 * questionSet.length) / maxPerPage);
   const [currentPage, setCurrentPage] = useState(null);
 
+  // Track answer status
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+
   // Chop up the question set when the page number changes
   useEffect(() => {
     const startOffset = pageNumber * maxPerPage;
@@ -25,8 +28,7 @@ function MatchingQuiz({ inverted, title, maxPerPage, questionSet, onQuizDone, hi
 
   // Send up status if we are done
   if(pageNumber >= pageCount && onQuizDone) {
-    // TODO report correct status
-    onQuizDone(false);
+    onQuizDone(incorrectAnswers === 0);
   }
 
   return (
@@ -37,8 +39,11 @@ function MatchingQuiz({ inverted, title, maxPerPage, questionSet, onQuizDone, hi
           title={title}
           percent={100 * (pageNumber / pageCount)}
           onClose={() => history.push(URL_QUIZZES)}
-          onAnswered={() => {
+          onAnswered={(correct) => {
             setPageNumber(pageNumber + 1);
+            if(!correct){
+              setIncorrectAnswers(incorrectAnswers+ 1);
+            }
           }}
           questionSet={currentPage}
           maxPerPage={maxPerPage}

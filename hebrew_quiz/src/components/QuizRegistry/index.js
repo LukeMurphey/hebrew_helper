@@ -51,7 +51,8 @@ import chapter_22 from "../../data/chapter_22.json";
 import qal_perfect_qatal from "../../data/chapter_12_qal_perfect_qatal.json";
 import qal_imperfect_qatal from "../../data/chapter_13_qal_imperfect_qatal.json";
 
-import { shuffle, vocabularyQuizTitle } from "../Utils/index";
+import { shuffle, vocabularyQuizTitle, getQuizIDFromURL } from "../Utils/index";
+import { setQuizStatus } from "../Persistence";
 
 export default function QuizRegistry({ inverted }) {
   const quizList = [
@@ -65,6 +66,7 @@ export default function QuizRegistry({ inverted }) {
           title={"Letters"}
           questionSet={shuffle(chapter_2_letters)}
           maxPerPage={15}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_LETTERS), status )}
         />
       ),
     },
@@ -77,6 +79,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={"Test your memorization of Genesis and Deuteronomy 6:4-5"}
           questionSet={genesis_1_shema}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_BASIC_READINGS), status )}
         />
       ),
     },
@@ -89,6 +92,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(4)}
           questionSet={shuffle(chapter_4)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_4), status )}
         />
       ),
     },
@@ -103,6 +107,7 @@ export default function QuizRegistry({ inverted }) {
           subtitle={"Match the noun with the correct form"}
           questionSet={shuffle(chapter_4_nouns)}
           maxPerPage={10}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_NOUN_PARSING), status )}
         />
       ),
     },
@@ -117,6 +122,7 @@ export default function QuizRegistry({ inverted }) {
           subtitle={"Match the conjunction with the word"}
           questionSet={shuffle(chapter_4_conjunction)}
           maxPerPage={10}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_CONJUNCTION), status )}
         />
       ),
     },
@@ -129,6 +135,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(5)}
           questionSet={shuffle(chapter_5)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_5), status )}
         />
       ),
     },
@@ -141,6 +148,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(7)}
           questionSet={shuffle(chapter_7)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_7), status )}
         />
       ),
     },
@@ -153,6 +161,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(8)}
           questionSet={shuffle(chapter_8)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_8), status )}
         />
       ),
     },
@@ -165,6 +174,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={"Pronominal"}
           questionSet={shuffle(chapter_8_pronominal)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_PRONOMINAL), status )}
         />
       ),
     },
@@ -177,6 +187,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(9)}
           questionSet={shuffle(chapter_9)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_9), status )}
         />
       ),
     },
@@ -189,6 +200,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(11)}
           questionSet={shuffle(chapter_11)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_11), status )}
         />
       ),
     },
@@ -201,6 +213,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           questionSet={shuffle(qal_perfect_qatal)}
           title={"Qal Perfect (Qatal)"}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_QAL_PERFECT), status )}
         />
       ),
     },
@@ -213,6 +226,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(13)}
           questionSet={shuffle(chapter_13)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_13), status )}
         />
       ),
     },
@@ -226,6 +240,7 @@ export default function QuizRegistry({ inverted }) {
           questionSet={shuffle(qal_imperfect_qatal)}
           allowMultiplePerson={true}
           title={"Qal Imperfect (Qatal)"}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_QAL_IMPERFECT), status )}
         />
       ),
     },
@@ -238,6 +253,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(14)}
           questionSet={shuffle(chapter_14)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_14), status )}
         />
       ),
     },
@@ -250,6 +266,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(15)}
           questionSet={shuffle(chapter_15)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_15), status )}
         />
       ),
     },
@@ -262,6 +279,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(16)}
           questionSet={shuffle(chapter_16)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_16), status )}
         />
       ),
     },
@@ -274,6 +292,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(17)}
           questionSet={shuffle(chapter_17)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_17), status )}
         />
       ),
     },
@@ -286,6 +305,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(18)}
           questionSet={shuffle(chapter_18)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_18), status )}
         />
       ),
     },
@@ -298,6 +318,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(19)}
           questionSet={shuffle(chapter_19)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_19), status )}
         />
       ),
     },
@@ -311,6 +332,7 @@ export default function QuizRegistry({ inverted }) {
           title={"Piel, Pual, and Hithpael"}
           questionSet={chapter_19_forms}
           maxPerPage={4}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_FORMS_19), status )}
         />
       ),
     },
@@ -323,6 +345,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(20)}
           questionSet={shuffle(chapter_20)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_20), status )}
         />
       ),
     },
@@ -335,6 +358,7 @@ export default function QuizRegistry({ inverted }) {
           inverted={inverted}
           title={vocabularyQuizTitle(22)}
           questionSet={shuffle(chapter_22)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_22), status )}
         />
       ),
     },

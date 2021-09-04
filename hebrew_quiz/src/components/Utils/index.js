@@ -22,3 +22,7 @@ export function shuffle(array) {
 export function vocabularyQuizTitle(chapter) {
   return `Chapter ${chapter} Vocabulary`;
 }
+
+export function getQuizIDFromURL(path) {
+  return path.substring(1,);
+}

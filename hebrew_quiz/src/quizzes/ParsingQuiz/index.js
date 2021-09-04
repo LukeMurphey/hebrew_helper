@@ -14,7 +14,7 @@ import { URL_QUIZZES } from "../../components/URLs/index";
 import { withRouter } from "react-router-dom";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 
-function ParsingQuiz({ subtitle, inverted, history, title, questionSet, allowMultiplePerson }) {
+function ParsingQuiz({ subtitle, inverted, history, title, questionSet, allowMultiplePerson, onQuizDone }) {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
 
@@ -24,6 +24,11 @@ function ParsingQuiz({ subtitle, inverted, history, title, questionSet, allowMul
   // Otherwise, if it after the end then we have completed the quiz
   if (questionNumber < questionSet.length) {
     question = questionSet[questionNumber];
+  }
+
+  if(!question) {
+    // TODO report correct status
+    onQuizDone(true);
   }
 
   return (
@@ -65,11 +70,13 @@ ParsingQuiz.propTypes = {
   history: PropTypes.object.isRequired,
   questionSet: PropTypes.arrayOf(PropTypes.node).isRequired,
   allowMultiplePerson: PropTypes.bool,
+  onQuizDone: PropTypes.func,
 };
 
 ParsingQuiz.defaultProps = {
   inverted: false,
   allowMultiplePerson: false,
+  onQuizDone: () => {},
 };
 
 export default withRouter(ParsingQuiz);

@@ -11,7 +11,7 @@ import { URL_QUIZZES } from "../../components/URLs/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 import MakeSentenceQuestion from "../../components/MakeSentenceQuestion/index";
 
-function MakeSentenceQuiz({ inverted, title, questionSet, history }) {
+function MakeSentenceQuiz({ inverted, title, questionSet, onQuizDone, history }) {
   const [pageNumber, setPageNumber] = useState(0);
 
   return (
@@ -27,6 +27,8 @@ function MakeSentenceQuiz({ inverted, title, questionSet, history }) {
             if(correct){
                 setPageNumber(pageNumber + 1);
             }
+            // TODO report correct status
+            onQuizDone(correct);
           }}
           percent={100 * (pageNumber / questionSet.length)}
         />
@@ -43,11 +45,13 @@ MakeSentenceQuiz.propTypes = {
   title: PropTypes.string,
   questionSet: PropTypes.arrayOf(PropTypes.node).isRequired,
   history: PropTypes.object.isRequired,
+  onQuizDone: PropTypes.func,
 };
 
 MakeSentenceQuiz.defaultProps = {
   inverted: true,
   title: "Make a sentence",
+  onQuizDone: () => {},
 };
 
 export default withRouter(MakeSentenceQuiz);

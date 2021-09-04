@@ -8,7 +8,7 @@ import { URL_QUIZZES } from "../../components/URLs/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
 import MatchingQuestion from "../../components/MatchingQuestion";
 
-function MatchingQuiz({ inverted, title, maxPerPage, questionSet, history }) {
+function MatchingQuiz({ inverted, title, maxPerPage, questionSet, onQuizDone, history }) {
   const [pageNumber, setPageNumber] = useState(0);
 
   // Chop up the vocab list
@@ -22,6 +22,12 @@ function MatchingQuiz({ inverted, title, maxPerPage, questionSet, history }) {
 
     setCurrentPage(questionSet.slice(startOffset, endOffset));
   }, [pageNumber, questionSet, maxPerPage]);
+
+  // Send up status if we are done
+  if(pageNumber >= pageCount && onQuizDone) {
+    // TODO report correct status
+    onQuizDone(false);
+  }
 
   return (
     <>
@@ -49,12 +55,14 @@ MatchingQuiz.propTypes = {
   maxPerPage: PropTypes.number,
   questionSet: PropTypes.arrayOf(PropTypes.node).isRequired,
   history: PropTypes.object.isRequired,
+  onQuizDone: PropTypes.func,
 };
 
 MatchingQuiz.defaultProps = {
   inverted: true,
   title: "Vocabulary quiz",
   maxPerPage: 5,
+  onQuizDone: () => {},
 };
 
 export default withRouter(MatchingQuiz);

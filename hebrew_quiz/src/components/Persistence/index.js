@@ -30,7 +30,7 @@ export function storageAvailable(type) {
 export function getQuizStatus(quizID, storageOverride = null) {
   const quizStatuses = getQuizStatuses(storageOverride);
 
-  if (quizID in quizStatuses) {
+  if (quizStatuses !== null && quizID in quizStatuses) {
     return quizStatuses[quizID];
   }
 

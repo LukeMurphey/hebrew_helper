@@ -3,6 +3,8 @@ import { Table, Header } from "semantic-ui-react";
 import { Container, Icon, Button, Input, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import QuizRegistry from "../QuizRegistry";
+import QuizStatus from "./QuizStatus";
+import { getQuizIDFromURL } from "../Utils";
 import PropTypes from "prop-types";
 
 const QUIZTYPE_ALL = null;
@@ -57,7 +59,9 @@ function QuizList({ inverted }) {
   for (const [index, value] of filteredQuizzes.entries()) {
     quizRows.push(
       <Table.Row key={index}>
-        <Table.Cell>{value.chapter}</Table.Cell>
+        <Table.Cell>
+          <QuizStatus quizID={getQuizIDFromURL(value.path)} /> {value.chapter}
+        </Table.Cell>
         <Table.Cell>
           <Link to={value.path}>{value.title}</Link>
         </Table.Cell>

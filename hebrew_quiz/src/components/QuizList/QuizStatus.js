@@ -3,17 +3,9 @@ import { getQuizStatus } from "../Persistence/index";
 import PropTypes from "prop-types";
 import { Icon } from "semantic-ui-react";
 
-// circle outline
-// check circle
-// exclamation circle
-// flag checkered
-// star half
-// thumbs down
-// warning circle
-
 function QuizStatus({ inverted, quizID }) {
   const quizInfo = getQuizStatus(quizID);
-  console.warn(quizInfo);
+
   if (quizInfo === null) {
     return <Icon color="grey" name="circle outline" size="large" />;
   } else if (quizInfo !== null && quizInfo.status === true) {

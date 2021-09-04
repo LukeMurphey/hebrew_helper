@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Table, Header } from "semantic-ui-react";
-import { Container, Icon, Button, Input, Message } from "semantic-ui-react";
+import { Container, Icon, Button, Input, Message, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import QuizRegistry from "../QuizRegistry";
 import QuizStatus from "./QuizStatus";
+import { getQuizStatus } from "../Persistence/index";
 import { getQuizIDFromURL } from "../Utils";
 import PropTypes from "prop-types";
 
@@ -11,12 +12,32 @@ const QUIZTYPE_ALL = null;
 const QUIZTYPE_VOCAB = "vocab";
 const QUIZTYPE_PARADIGM = "paradigm";
 
+const QUIZCATEGORY_ALL = null;
+const QUIZCATEGORY_NEXT = "next";
+const QUIZCATEGORY_WRONG = "wrong";
+const QUIZCATEGORY_RIGHT = "right";
+const QUIZCATEGORY_NOT_DONE = "not_done";
+
+/**
+ * Determine if the quiz is a vocabulary quiz.
+ * @param {object} quiz 
+ * @returns 
+ */
 export function isVocab(quiz) {
   return quiz.title.includes("Vocabulary");
 }
 
-export function filterQuizzes(quizzes, quizType) {
+/**
+ * Filter the quizzes by type.
+ *
+ * @param {array} quizzes 
+ * @param {string} quizType
+ * @returns 
+ */
+export function filterQuizzesByType(quizzes, quizType) {
   return quizzes.filter((quiz) => {
+
+    // Filter by type
     if (!quizType) {
       return true;
     } else if (quizType === QUIZTYPE_VOCAB) {
@@ -29,6 +50,51 @@ export function filterQuizzes(quizzes, quizType) {
   });
 }
 
+/**
+ * Filter the quizzes by category.
+ *
+ * @param {array} quizzes
+ * @param {string} quizCategory 
+ * @returns 
+ */
+ export function filterQuizzesByCategory(quizzes, quizCategory) {
+  return quizzes.filter((quiz) => {
+
+    // Filter by category
+    const quizInfo = getQuizStatus(getQuizIDFromURL(quiz.path));
+
+    if(quizCategory === QUIZCATEGORY_ALL) {
+      // Pass it through.
+      return true;
+    }
+
+    // Handle the case where we don't have quiz information
+    if (quizInfo === null ) {
+      return quizCategory === QUIZCATEGORY_NOT_DONE;
+    }
+    else {
+      if (quizCategory === QUIZCATEGORY_NOT_DONE) {
+        return quizInfo.status === null;
+      } else if (quizCategory === QUIZCATEGORY_WRONG) {
+        return quizInfo.status === false;
+      } else if (quizCategory === QUIZCATEGORY_RIGHT) {
+        return quizInfo.status === true;
+      } 
+    }
+
+    // TODO add next up
+
+    return true;
+  });
+}
+
+/**
+ * Search the quizzes by the search string.
+ *
+ * @param {array} quizzes 
+ * @param {string} search 
+ * @returns 
+ */
 export function searchQuizzes(quizzes, search) {
   return quizzes.filter((quiz) => {
     if (!search) {
@@ -47,12 +113,48 @@ export function searchQuizzes(quizzes, search) {
   });
 }
 
+export function filterQuizzes(quizzes, search, quizType, quizCategory) {
+  return searchQuizzes(filterQuizzesByCategory(filterQuizzesByType(quizzes, quizType), quizCategory), search);
+};
+
+const categoryOptions = [
+  {
+    key: QUIZCATEGORY_ALL,
+    text: 'All',
+    value: QUIZCATEGORY_ALL,
+  },
+  {
+    key: QUIZCATEGORY_WRONG,
+    text: 'Wrong',
+    value: QUIZCATEGORY_WRONG,
+  },
+  {
+    key: QUIZCATEGORY_NOT_DONE,
+    text: 'Unfinished',
+    value: QUIZCATEGORY_NOT_DONE,
+  },
+  {
+    key: QUIZCATEGORY_RIGHT,
+    text: 'Done',
+    value: QUIZCATEGORY_RIGHT,
+  },
+  /*
+  {
+    key: QUIZCATEGORY_NEXT,
+    text: 'Next up',
+    value: QUIZCATEGORY_NEXT,
+  },
+  */
+]
+
 function QuizList({ inverted }) {
   const [search, setSearch] = useState(null);
   const [quizType, setQuizType] = useState(QUIZTYPE_ALL);
+  const [quizCategory, setQuizCategory] = useState(QUIZCATEGORY_ALL);
 
+  // Filter the quizzes to the ones that we are searching for
   const filteredQuizzes = QuizRegistry({ inverted })
-    ? searchQuizzes(filterQuizzes(QuizRegistry({ inverted }), quizType), search)
+    ? filterQuizzes(QuizRegistry({ inverted }), search, quizType, quizCategory)
     : null;
 
   const quizRows = [];
@@ -98,6 +200,9 @@ function QuizList({ inverted }) {
           Other
         </Button>
       </Button.Group>
+
+      <Dropdown options={categoryOptions} onChange={(event, data) => setQuizCategory(data.value)} text="Filter">
+      </Dropdown>
 
       <Input
         style={{ float: "right" }}

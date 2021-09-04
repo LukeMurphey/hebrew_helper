@@ -113,10 +113,22 @@ export function searchQuizzes(quizzes, search) {
   });
 }
 
+/**
+ * Perform the various filters against all of the quizzes.
+ *
+ * @param {array} quizzes 
+ * @param {string} search 
+ * @param {string} quizType 
+ * @param {string} quizCategory 
+ * @returns 
+ */
 export function filterQuizzes(quizzes, search, quizType, quizCategory) {
   return searchQuizzes(filterQuizzesByCategory(filterQuizzesByType(quizzes, quizType), quizCategory), search);
 };
 
+/**
+ * Below are the options for the categories.
+ */
 const categoryOptions = [
   {
     key: QUIZCATEGORY_ALL,

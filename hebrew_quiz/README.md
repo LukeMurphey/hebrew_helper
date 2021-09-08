@@ -42,6 +42,20 @@ To do this, you will need to:
 2. Create the URL for the quiz in `hebrew_quiz/src/components/URLs/index.js`
 3. Create the configuration for the quiz in `hebrew_quiz/src/components/QuizRegistry/index.js`
 
+### I want to build the iOS app
+
+*Build the app first*
+
+```yarn build```
+
+*Open the app in xcode*
+
+```npx cap open ios```
+
+*Update the app and rerun it*
+
+```npx cap run ios```
+
 # Good Resources
 
 * https://www.lexilogos.com/keyboard/hebrew.htm

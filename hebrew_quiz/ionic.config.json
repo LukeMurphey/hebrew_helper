@@ -1,0 +1,7 @@
+{
+    "name": "learningbiblicalhebrewyar",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

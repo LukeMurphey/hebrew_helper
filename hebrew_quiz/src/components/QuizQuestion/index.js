@@ -11,8 +11,10 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import useSound from 'use-sound';
 import { Header, Segment, Button, Message } from "semantic-ui-react";
-import { UNANSWERED, CORRECT, INCORRECT } from "../QuizQuestion/constants";
+import { UNANSWERED, CORRECT, INCORRECT } from "./constants";
+import successSfx from '../../sounds/success.mp3';
 
 function QuizQuestion({
   title,
@@ -22,6 +24,17 @@ function QuizQuestion({
   answerStatus,
   correctAnswer,
 }) {
+
+  const [playSuccess] = useSound(
+    successSfx,
+    { volume: 0.25 }
+  );
+
+  // Play the success sound if the user got it right
+  if(answerStatus === CORRECT){
+    playSuccess();
+  }
+
   return (
     <Segment inverted={inverted}>
       <Header as="h2">{title}</Header>

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Table, Header } from "semantic-ui-react";
-import { Container, Icon, Button, Input, Message, Dropdown } from "semantic-ui-react";
+import {
+  Container,
+  Icon,
+  Button,
+  Input,
+  Message,
+  Dropdown,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import QuizRegistry from "../QuizRegistry";
 import QuizStatus from "./QuizStatus";
@@ -20,8 +27,8 @@ const QUIZCATEGORY_NOT_DONE = "not_done";
 
 /**
  * Determine if the quiz is a vocabulary quiz.
- * @param {object} quiz 
- * @returns 
+ * @param {object} quiz
+ * @returns
  */
 export function isVocab(quiz) {
   return quiz.title.includes("Vocabulary");
@@ -30,13 +37,12 @@ export function isVocab(quiz) {
 /**
  * Filter the quizzes by type.
  *
- * @param {array} quizzes 
+ * @param {array} quizzes
  * @param {string} quizType
- * @returns 
+ * @returns
  */
 export function filterQuizzesByType(quizzes, quizType) {
   return quizzes.filter((quiz) => {
-
     // Filter by type
     if (!quizType) {
       return true;
@@ -54,32 +60,30 @@ export function filterQuizzesByType(quizzes, quizType) {
  * Filter the quizzes by category.
  *
  * @param {array} quizzes
- * @param {string} quizCategory 
- * @returns 
+ * @param {string} quizCategory
+ * @returns
  */
- export function filterQuizzesByCategory(quizzes, quizCategory) {
+export function filterQuizzesByCategory(quizzes, quizCategory) {
   return quizzes.filter((quiz) => {
-
     // Filter by category
     const quizInfo = getQuizStatus(getQuizIDFromURL(quiz.path));
 
-    if(quizCategory === QUIZCATEGORY_ALL) {
+    if (quizCategory === QUIZCATEGORY_ALL) {
       // Pass it through.
       return true;
     }
 
     // Handle the case where we don't have quiz information
-    if (quizInfo === null ) {
+    if (quizInfo === null) {
       return quizCategory === QUIZCATEGORY_NOT_DONE;
-    }
-    else {
+    } else {
       if (quizCategory === QUIZCATEGORY_NOT_DONE) {
         return quizInfo.status === null;
       } else if (quizCategory === QUIZCATEGORY_WRONG) {
         return quizInfo.status === false;
       } else if (quizCategory === QUIZCATEGORY_RIGHT) {
         return quizInfo.status === true;
-      } 
+      }
     }
 
     // TODO add next up
@@ -91,9 +95,9 @@ export function filterQuizzesByType(quizzes, quizType) {
 /**
  * Search the quizzes by the search string.
  *
- * @param {array} quizzes 
- * @param {string} search 
- * @returns 
+ * @param {array} quizzes
+ * @param {string} search
+ * @returns
  */
 export function searchQuizzes(quizzes, search) {
   return quizzes.filter((quiz) => {
@@ -116,15 +120,21 @@ export function searchQuizzes(quizzes, search) {
 /**
  * Perform the various filters against all of the quizzes.
  *
- * @param {array} quizzes 
- * @param {string} search 
- * @param {string} quizType 
- * @param {string} quizCategory 
- * @returns 
+ * @param {array} quizzes
+ * @param {string} search
+ * @param {string} quizType
+ * @param {string} quizCategory
+ * @returns
  */
 export function filterQuizzes(quizzes, search, quizType, quizCategory) {
-  return searchQuizzes(filterQuizzesByCategory(filterQuizzesByType(quizzes, quizType), quizCategory), search);
-};
+  return searchQuizzes(
+    filterQuizzesByCategory(
+      filterQuizzesByType(quizzes, quizType),
+      quizCategory
+    ),
+    search
+  );
+}
 
 /**
  * Below are the options for the categories.
@@ -132,22 +142,22 @@ export function filterQuizzes(quizzes, search, quizType, quizCategory) {
 const categoryOptions = [
   {
     key: QUIZCATEGORY_ALL,
-    text: 'All',
+    text: "All",
     value: QUIZCATEGORY_ALL,
   },
   {
     key: QUIZCATEGORY_WRONG,
-    text: 'Wrong',
+    text: "Wrong",
     value: QUIZCATEGORY_WRONG,
   },
   {
     key: QUIZCATEGORY_NOT_DONE,
-    text: 'Unfinished',
+    text: "Unfinished",
     value: QUIZCATEGORY_NOT_DONE,
   },
   {
     key: QUIZCATEGORY_RIGHT,
-    text: 'Done',
+    text: "Done",
     value: QUIZCATEGORY_RIGHT,
   },
   /*
@@ -157,7 +167,7 @@ const categoryOptions = [
     value: QUIZCATEGORY_NEXT,
   },
   */
-]
+];
 
 function QuizList({ inverted }) {
   const [search, setSearch] = useState(null);
@@ -213,8 +223,13 @@ function QuizList({ inverted }) {
         </Button>
       </Button.Group>
 
-      <Dropdown options={categoryOptions} onChange={(event, data) => setQuizCategory(data.value)} text="Filter">
-      </Dropdown>
+      <Dropdown
+        options={categoryOptions}
+        onChange={(event, data) => setQuizCategory(data.value)}
+        defaultValue={quizCategory}
+        simple
+        item
+      ></Dropdown>
 
       <Input
         style={{ float: "right" }}

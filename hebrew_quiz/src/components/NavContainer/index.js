@@ -32,7 +32,7 @@ function NavContainer({ inverted, children }) {
         }}
       >
         <Container text>
-          <Menu pointing inverted={inverted}>
+          <Menu inverted={inverted}>
             <TabMenuItem
               to="/"
               label="Get the Book"

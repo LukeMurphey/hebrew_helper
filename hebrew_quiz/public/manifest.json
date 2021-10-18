@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Hebrew Helper",
+  "name": "App for helping people learn Biblical Hebrew",
   "icons": [
     {
       "src": "favicon.ico",

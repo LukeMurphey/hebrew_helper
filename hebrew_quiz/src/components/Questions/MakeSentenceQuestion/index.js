@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Label, Divider } from "semantic-ui-react";
-import QuizContainer from "../QuizContainer";
-import QuizQuestion from "../QuizQuestion";
-import { shuffle } from "../Utils/index";
-import { UNANSWERED, CORRECT, INCORRECT } from "../QuizQuestion/constants";
+import QuizContainer from "../../QuizContainer";
+import QuizQuestion from "../../QuizQuestion";
+import { shuffle } from "../../Utils/index";
+import { UNANSWERED, CORRECT, INCORRECT } from "../../QuizQuestion/constants";
 
 function MakeSentenceQuestion({
   inverted,

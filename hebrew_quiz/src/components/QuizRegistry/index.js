@@ -6,6 +6,7 @@ import {
   URL_NOUN_PARSING,
   URL_CONJUNCTION,
   URL_VOCAB_5,
+  URL_TRANSLATIONS_5,
   URL_VOCAB_7,
   URL_VOCAB_8,
   URL_VOCAB_9,
@@ -33,6 +34,7 @@ import chapter_4 from "../../data/chapter_4.json";
 import chapter_4_nouns from "../../data/chapter_4_nouns.json";
 import chapter_4_conjunction from "../../data/chapter_4_conjunction.json";
 import chapter_5 from "../../data/chapter_5.json";
+import chapter_5_translations from "../../data/chapter_5_translations.json";
 import chapter_7 from "../../data/chapter_7.json";
 import chapter_8 from "../../data/chapter_8.json";
 import chapter_8_pronominal from "../../data/chapter_8_pronominal.json";
@@ -53,6 +55,7 @@ import qal_imperfect_qatal from "../../data/chapter_13_qal_imperfect_qatal.json"
 
 import { shuffle, vocabularyQuizTitle, getQuizIDFromURL } from "../Utils/index";
 import { setQuizStatus } from "../Persistence";
+import SelectCorrectTranslationQuiz from "../../quizzes/SelectCorrectTranslationQuiz";
 
 export default function QuizRegistry({ inverted }) {
   const quizList = [
@@ -136,6 +139,19 @@ export default function QuizRegistry({ inverted }) {
           title={vocabularyQuizTitle(5)}
           questionSet={shuffle(chapter_5)}
           onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_5), status )}
+        />
+      ),
+    },
+    {
+      title: "Chapter 5 Translations (including this/that)",
+      chapter: 5,
+      path: URL_TRANSLATIONS_5,
+      render: (
+        <SelectCorrectTranslationQuiz
+          inverted={inverted}
+          title={"Translations for Chapter 5"}
+          questionSet={shuffle(chapter_5_translations)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_TRANSLATIONS_5), status )}
         />
       ),
     },

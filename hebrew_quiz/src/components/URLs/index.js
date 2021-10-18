@@ -15,6 +15,7 @@ export const URL_FORMS_19 = '/forms_19';
 // Vocab
 export const URL_VOCAB_4 = '/vocab_4';
 export const URL_VOCAB_5 = '/vocab_5';
+export const URL_TRANSLATIONS_5 = '/translations_5';
 export const URL_VOCAB_7 = '/vocab_7';
 export const URL_VOCAB_8 = '/vocab_8';
 export const URL_VOCAB_9 = '/vocab_9';

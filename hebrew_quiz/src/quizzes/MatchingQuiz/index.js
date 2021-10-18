@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { URL_QUIZZES } from "../../components/URLs/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
-import MatchingQuestion from "../../components/MatchingQuestion";
+import MatchingQuestion from "../../components/Questions/MatchingQuestion";
 
 function MatchingQuiz({ inverted, title, maxPerPage, questionSet, onQuizDone, history }) {
   const [pageNumber, setPageNumber] = useState(0);

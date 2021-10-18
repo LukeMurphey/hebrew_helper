@@ -6,10 +6,10 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Divider, Segment, Button } from "semantic-ui-react";
 import PropTypes from "prop-types";
-import { UNANSWERED, CORRECT } from "../QuizQuestion/constants";
-import QuizContainer from "../QuizContainer";
-import QuizQuestion from "../QuizQuestion";
-import { shuffle } from "../Utils/index";
+import { UNANSWERED } from "../../QuizQuestion/constants";
+import QuizContainer from "../../QuizContainer";
+import QuizQuestion from "../../QuizQuestion";
+import { shuffle } from "../../Utils/index";
 
 function MatchingQuestion({
   inverted,

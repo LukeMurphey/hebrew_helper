@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { URL_QUIZZES } from "../../components/URLs/index";
 import QuizCompleteDialog from "../../components/QuizCompleteDialog/index";
-import MakeSentenceQuestion from "../../components/MakeSentenceQuestion/index";
+import MakeSentenceQuestion from "../../components/Questions/MakeSentenceQuestion/index";
 
 function MakeSentenceQuiz({ inverted, title, questionSet, onQuizDone, history }) {
   const [pageNumber, setPageNumber] = useState(0);

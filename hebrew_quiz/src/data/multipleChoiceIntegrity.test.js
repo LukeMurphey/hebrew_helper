@@ -1,4 +1,3 @@
-import { render, screen } from "@testing-library/react";
 import chapter_5_translations from "./chapter_5_translations.json";
 
 const multipleChoiceExams = [chapter_5_translations];

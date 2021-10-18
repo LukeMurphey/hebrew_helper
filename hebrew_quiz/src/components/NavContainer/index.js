@@ -15,7 +15,7 @@ function TabMenuItem({ label, to, activeOnlyWhenExact }) {
   });
 
   return (
-    <Menu.Item name={label} active={match}>
+    <Menu.Item name={label} active={match !== null}>
       <Link to={to}>{label}</Link>
     </Menu.Item>
   );

@@ -30,5 +30,21 @@
   {
     "definition": "מָקְטָל",
     "word": "Participle (Hophal)"
+  },
+  {
+    "word": "הָקְטַל",
+    "definition": "Hophal (Perfect)"
+  },
+  {
+    "word": "הִקְטִיל",
+    "definition": "Hiphil (Perfect)"
+  },
+  {
+    "word": "הָקְטֵל",
+    "definition": "Hophal (Inf Abs)"
+  },
+  {
+    "word": "הַקְטֵל",
+    "definition": "Hiphil (Inf Abs)"
   }
 ]

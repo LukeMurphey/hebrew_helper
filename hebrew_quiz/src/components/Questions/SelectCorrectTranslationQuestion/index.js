@@ -25,6 +25,9 @@ function SelectCorrectTranslationQuestion({
       question={"Select the Best Translation for:"}
       sentence={sentence}
       answers={answers}
+      answerFontSize={'18px'}
+      answerPadding={'10px'}
+      sentenceFontSize={'20px'}
     />
   );
 }

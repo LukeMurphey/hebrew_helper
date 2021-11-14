@@ -19,6 +19,10 @@ function MatchingQuestion({
   percent,
   onClose,
   onAnswered,
+  questionsFontSize,
+  questionsPadding,
+  answersFontSize,
+  answersPadding
 }) {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -125,7 +129,7 @@ function MatchingQuestion({
                 {shuffledQuestions.map((vocabEntry, i) => (
                   <Button
                     key={i}
-                    style={{ marginTop: 12 }}
+                    style={{ marginTop: 12, fontSize: questionsFontSize, padding: questionsPadding }}
                     disabled={isQuestionAnswered(i)}
                     primary={selectedQuestion === i}
                     onClick={() => setSelectedQuestion(i)}
@@ -139,7 +143,7 @@ function MatchingQuestion({
                 {shuffledAnswers.map((vocabEntry, i) => (
                   <Button
                     key={i}
-                    style={{ marginTop: 12 }}
+                    style={{ marginTop: 12, fontSize: answersFontSize, padding: answersPadding }}
                     disabled={isAnswered(i)}
                     primary={selectedAnswer === i}
                     onClick={() => setSelectedAnswer(i)}
@@ -166,11 +170,19 @@ MatchingQuestion.propTypes = {
   percent: PropTypes.number,
   onClose: PropTypes.func,
   onAnswered: PropTypes.func,
+  questionsFontSize: PropTypes.number,
+  questionsPadding: PropTypes.number,
+  answersFontSize: PropTypes.number,
+  answersPadding: PropTypes.number,
 };
 
 MatchingQuestion.defaultProps = {
   inverted: true,
   maxPerPage: 5,
+  questionsFontSize: null,
+  questionsPadding: null,
+  answersFontSize: null,
+  answersPadding: null,
 };
 
 export default MatchingQuestion;

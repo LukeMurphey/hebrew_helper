@@ -18,6 +18,9 @@ function MultipleChoiceQuestion({
   answer,
   answers,
   question,
+  answerFontSize,
+  sentenceFontSize,
+  answerPadding,
 }) {
   const [answerStatus, setAnswerStatus] = useState(UNANSWERED);
   const [answersList, setAnswersList] = useState(null);
@@ -81,11 +84,11 @@ function MultipleChoiceQuestion({
         correctAnswer={answer}
       >
         <p>{question}</p>
-        <p>{sentence}</p>
+        <p style={{fontSize: sentenceFontSize}}>{sentence}</p>
         {answers && answers.map((possibleAnswer, i) => (
                             <Button
                             key={i}
-                            style={{ marginTop: 12 }}
+                            style={{ fontSize: answerFontSize, marginTop: 12, padding: answerPadding, }}
                             primary={selectedAnswer === i}
                             onClick={() => setSelectedAnswer(i)}
                             fluid={fluid}
@@ -107,11 +110,17 @@ MultipleChoiceQuestion.propTypes = {
   onAnswered: PropTypes.func,
   percent: PropTypes.number,
   fluid: PropTypes.bool,
+  answerFontSize: PropTypes.number,
+  sentenceFontSize: PropTypes.number,
+  answerPadding: PropTypes.number,
 };
 
 MultipleChoiceQuestion.defaultProps = {
   inverted: false,
   fluid: false,
+  answerFontSize: null,
+  answerPadding: null,
+  sentenceFontSize: null,
 };
 
 export default MultipleChoiceQuestion;

@@ -16,4 +16,4 @@ There is a PDF at https://hebrewsyntax.org/bbh2/bbh2_study_guide.pdf that can be
 ## Limitations
 
 * Parsing quizzes that have multiple answers due to supporting more than one person (e.g. the parse could be both second and third person) need to have the answer listed in the order of the persons. The answer of "2fp/3fp" will work but specifying the answer of "3fp/2fp" won't match correctly since the UI will always put the persons in order.
-* Quizzes that have the same answers that are identical must use the "definition" in the JSON for the items that are duplicates; otherwise, the quiz will not recognize the answers. 
+* Quizzes that have the same answers that are identical must use the "definition" in the JSON for the items that are duplicates; otherwise, the quiz will not recognize the answers.

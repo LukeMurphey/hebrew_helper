@@ -22,6 +22,7 @@ import {
   URL_FORMS_20,
   URL_VOCAB_20,
   URL_VOCAB_22,
+  URL_TRANSLATIONS_22,
   URL_PRONOMINAL,
   URL_BASIC_READINGS,
 } from "../URLs/index";
@@ -52,6 +53,7 @@ import chapter_19_forms from "../../data/chapter_19_forms.json";
 import chapter_20_forms from "../../data/chapter_20_forms.json";
 import chapter_20 from "../../data/chapter_20.json";
 import chapter_22 from "../../data/chapter_22.json";
+import chapter_22_translations from "../../data/chapter_22_translations.json";
 import qal_perfect_qatal from "../../data/chapter_12_qal_perfect_qatal.json";
 import qal_imperfect_qatal from "../../data/chapter_13_qal_imperfect_qatal.json";
 
@@ -384,8 +386,8 @@ export default function QuizRegistry({ inverted }) {
     {
       title: "Chapter 22 Vocabulary",
       chapter: 22,
-      path: URL_VOCAB_22,
-      render: (
+      path: [URL_VOCAB_22, URL_TRANSLATIONS_22],
+      render: [(
         <MatchingQuiz
           inverted={inverted}
           title={vocabularyQuizTitle(22)}
@@ -393,6 +395,15 @@ export default function QuizRegistry({ inverted }) {
           onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_22), status )}
         />
       ),
+      (
+        <SelectCorrectTranslationQuiz
+          inverted={inverted}
+          title={"Translations for Chapter 22"}
+          questionSet={shuffle(chapter_22_translations)}
+          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_TRANSLATIONS_22), status, 2 )}
+        />
+      ),
+    ]
     },
   ];
 

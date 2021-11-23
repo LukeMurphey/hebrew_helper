@@ -64,7 +64,7 @@ export function setQuizStatuses(quizStatuses, storageOverride = null) {
   storage.setItem(QUIZ_STATUSES_NAME, JSON.stringify(quizStatuses));
 }
 
-export function setQuizStatus(quizID, status, storageOverride = null) {
+export function setQuizStatus(quizID, status, level = 1, storageOverride = null) {
   const storage = storageOverride || localStorage;
 
   // if (storageAvailable("localStorage")) {
@@ -79,6 +79,7 @@ export function setQuizStatus(quizID, status, storageOverride = null) {
   quizStatuses[quizID] = {
     status,
     dateUpdated: Date.now(),
+    level: level,
   };
 
   // Save it

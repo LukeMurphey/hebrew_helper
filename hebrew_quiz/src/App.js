@@ -14,6 +14,24 @@ import { URL_QUIZZES, URL_ABOUT, URL_HOME } from "./components/URLs/index";
 import history from "./history";
 import QuizRegistry from "./components/QuizRegistry";
 
+/**
+ * Determine which quiz to render if there are multiple stages.
+ * @param {*} quiz A quiz object
+ * @returns 
+ */
+function renderQuiz(quiz) {
+  if(Array.isArray(quiz.render)){
+    return <Route exact path={quiz.path[0]}>{quiz.render[0]}</Route>;
+  }
+  else {
+    return <Route exact path={quiz.path}>{quiz.render}</Route>;
+  }
+}
+
+/**
+ * The main app class.
+ * @returns 
+ */
 function App({ inverted }) {
   return (
     <Router history={history}>
@@ -33,9 +51,7 @@ function App({ inverted }) {
         </NavContainer>
       </Route>
       {QuizRegistry({ inverted }).map((quiz, i) => (
-        <Route exact path={quiz.path}>
-          {quiz.render}
-        </Route>
+        renderQuiz(quiz)
       ))}
     </Router>
   );

@@ -30,6 +30,7 @@ export const URL_VOCAB_18 = '/vocab_18';
 export const URL_VOCAB_19 = '/vocab_19';
 export const URL_VOCAB_20 = '/vocab_20';
 export const URL_VOCAB_22 = '/vocab_22';
+export const URL_TRANSLATIONS_22 = '/translations_22';
 
 export function urlVocab(chapter){
     return `/vocab_${chapter}`;

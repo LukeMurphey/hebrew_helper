@@ -27,8 +27,8 @@ test("setting quiz status", () => {
   const storageMock = new LocalStorageMock();
 
   // Add quiz statuses
-  setQuizStatus("vocab_1", true, storageMock);
-  setQuizStatus("vocab_2", false, storageMock);
+  setQuizStatus("vocab_1", true, 1, storageMock);
+  setQuizStatus("vocab_2", false, 1, storageMock);
 
   // Make sure the latest entry is correct
   const records = getQuizStatuses(storageMock);
@@ -52,8 +52,8 @@ test("get quiz status", () => {
   const storageMock = new LocalStorageMock();
 
   // Add quiz statuses
-  setQuizStatus("vocab_1", true, storageMock);
-  setQuizStatus("vocab_2", false, storageMock);
+  setQuizStatus("vocab_1", true, 1, storageMock);
+  setQuizStatus("vocab_2", false, 1, storageMock);
 
   // Make sure the latest entry is correct
   const records = getQuizStatuses(storageMock);

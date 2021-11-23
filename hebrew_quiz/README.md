@@ -56,7 +56,12 @@ To do this, you will need to:
 
 ```npx cap run ios```
 
-# Good Resources
+## Notes on how the app works
+
+### How status is recorded
+This is stored by hebrew_quiz/src/components/Persistence/index.js
+
+## Good Resources
 
 * https://www.lexilogos.com/keyboard/hebrew.htm
 * https://csvjson.com/csv2json

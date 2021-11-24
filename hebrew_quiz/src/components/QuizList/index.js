@@ -13,6 +13,7 @@ import QuizRegistry from "../QuizRegistry";
 import QuizStatus from "./QuizStatus";
 import { getQuizStatus } from "../Persistence/index";
 import { getQuizIDFromURL } from "../Utils";
+import { FIRST_QUIZ } from "../Utils/constants";
 import PropTypes from "prop-types";
 
 const QUIZTYPE_ALL = null;
@@ -66,7 +67,7 @@ export function filterQuizzesByType(quizzes, quizType) {
 export function filterQuizzesByCategory(quizzes, quizCategory) {
   return quizzes.filter((quiz) => {
     // Filter by category
-    const quizInfo = getQuizStatus(getQuizIDFromURL(quiz.path));
+    const quizInfo = getQuizStatus(getQuizIDFromURL(quiz.quizzes[FIRST_QUIZ].path))
 
     if (quizCategory === QUIZCATEGORY_ALL) {
       // Pass it through.
@@ -184,10 +185,10 @@ function QuizList({ inverted }) {
     quizRows.push(
       <Table.Row key={index}>
         <Table.Cell>
-          <QuizStatus quizID={getQuizIDFromURL(value.path)} /> {value.chapter}
+          <QuizStatus quizID={getQuizIDFromURL(value.quizzes[FIRST_QUIZ].path)} /> {value.chapter}
         </Table.Cell>
         <Table.Cell>
-          <Link to={value.path}>{value.title}</Link>
+          <Link to={value.quizzes[FIRST_QUIZ].path}>{value.title}</Link>
         </Table.Cell>
       </Table.Row>
     );

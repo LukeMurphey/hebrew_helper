@@ -13,6 +13,7 @@ import NavContainer from "./components/NavContainer/index";
 import { URL_QUIZZES, URL_ABOUT, URL_HOME } from "./components/URLs/index";
 import history from "./history";
 import QuizRegistry from "./components/QuizRegistry";
+import { FIRST_QUIZ } from "./components/Utils/constants";
 
 /**
  * Determine which quiz to render if there are multiple stages.
@@ -21,7 +22,7 @@ import QuizRegistry from "./components/QuizRegistry";
  */
 function renderQuiz(quiz) {
   if(Array.isArray(quiz.render)){
-    return <Route exact path={quiz.path[0]}>{quiz.render[0]}</Route>;
+    return <Route exact path={quiz.path[FIRST_QUIZ]}>{quiz.render[FIRST_QUIZ]}</Route>;
   }
   else {
     return <Route exact path={quiz.path}>{quiz.render}</Route>;
@@ -51,7 +52,7 @@ function App({ inverted }) {
         </NavContainer>
       </Route>
       {QuizRegistry({ inverted }).map((quiz, i) => (
-        renderQuiz(quiz)
+        renderQuiz(quiz.quizzes[FIRST_QUIZ])
       ))}
     </Router>
   );

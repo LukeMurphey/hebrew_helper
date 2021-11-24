@@ -66,344 +66,498 @@ export default function QuizRegistry({ inverted }) {
     {
       title: "Letters",
       chapter: 2,
-      path: URL_LETTERS,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={"Letters"}
-          questionSet={shuffle(chapter_2_letters)}
-          maxPerPage={15}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_LETTERS), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_LETTERS,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={"Letters"}
+              questionSet={shuffle(chapter_2_letters)}
+              maxPerPage={15}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_LETTERS), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Passage Memorization (Gen. 1 and Dt. 6)",
       chapter: 3,
-      path: URL_BASIC_READINGS,
-      render: (
-        <MakeSentenceQuiz
-          inverted={inverted}
-          title={"Test your memorization of Genesis and Deuteronomy 6:4-5"}
-          questionSet={genesis_1_shema}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_BASIC_READINGS), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_BASIC_READINGS,
+          render: (
+            <MakeSentenceQuiz
+              inverted={inverted}
+              title={"Test your memorization of Genesis and Deuteronomy 6:4-5"}
+              questionSet={genesis_1_shema}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_BASIC_READINGS), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 4 Vocabulary",
       chapter: 4,
-      path: URL_VOCAB_4,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(4)}
-          questionSet={shuffle(chapter_4)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_4), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_4,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(4)}
+              questionSet={shuffle(chapter_4)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_4), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Noun Parsing",
       chapter: 4,
-      path: URL_NOUN_PARSING,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={"Noun Parsing"}
-          subtitle={"Match the noun with the correct form"}
-          questionSet={shuffle(chapter_4_nouns)}
-          maxPerPage={10}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_NOUN_PARSING), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_NOUN_PARSING,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={"Noun Parsing"}
+              subtitle={"Match the noun with the correct form"}
+              questionSet={shuffle(chapter_4_nouns)}
+              maxPerPage={10}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_NOUN_PARSING), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Conjunction",
       chapter: 4,
-      path: URL_CONJUNCTION,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={"Conjunction"}
-          subtitle={"Match the conjunction with the word"}
-          questionSet={shuffle(chapter_4_conjunction)}
-          maxPerPage={10}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_CONJUNCTION), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_CONJUNCTION,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={"Conjunction"}
+              subtitle={"Match the conjunction with the word"}
+              questionSet={shuffle(chapter_4_conjunction)}
+              maxPerPage={10}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_CONJUNCTION), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 5 Vocabulary (including this/that)",
       chapter: 5,
-      path: URL_VOCAB_5,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(5)}
-          questionSet={shuffle(chapter_5)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_5), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_5,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(5)}
+              questionSet={shuffle(chapter_5)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_5), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 5 Translations (including this/that)",
       chapter: 5,
-      path: URL_TRANSLATIONS_5,
-      render: (
-        <SelectCorrectTranslationQuiz
-          inverted={inverted}
-          title={"Translations for Chapter 5"}
-          questionSet={shuffle(chapter_5_translations)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_TRANSLATIONS_5), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_TRANSLATIONS_5,
+          render: (
+            <SelectCorrectTranslationQuiz
+              inverted={inverted}
+              title={"Translations for Chapter 5"}
+              questionSet={shuffle(chapter_5_translations)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_TRANSLATIONS_5), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 7 Vocabulary",
       chapter: 7,
-      path: URL_VOCAB_7,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(7)}
-          questionSet={shuffle(chapter_7)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_7), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_7,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(7)}
+              questionSet={shuffle(chapter_7)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_7), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 8 Vocabulary",
       chapter: 8,
-      path: URL_VOCAB_8,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(8)}
-          questionSet={shuffle(chapter_8)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_8), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_8,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(8)}
+              questionSet={shuffle(chapter_8)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_8), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Pronominal",
       chapter: 8,
-      path: URL_PRONOMINAL,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={"Pronominal"}
-          questionSet={shuffle(chapter_8_pronominal)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_PRONOMINAL), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_PRONOMINAL,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={"Pronominal"}
+              questionSet={shuffle(chapter_8_pronominal)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_PRONOMINAL), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 9 Vocabulary",
       chapter: 9,
-      path: URL_VOCAB_9,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(9)}
-          questionSet={shuffle(chapter_9)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_9), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_9,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(9)}
+              questionSet={shuffle(chapter_9)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_9), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 11 Vocabulary",
       chapter: 11,
-      path: URL_VOCAB_11,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(11)}
-          questionSet={shuffle(chapter_11)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_11), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_11,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(11)}
+              questionSet={shuffle(chapter_11)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_11), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Qal Perfects (Qatal)",
       chapter: 12,
-      path: URL_QAL_PERFECT,
-      render: (
-        <ParsingQuiz
-          inverted={inverted}
-          questionSet={shuffle(qal_perfect_qatal)}
-          title={"Qal Perfect (Qatal)"}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_QAL_PERFECT), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_QAL_PERFECT,
+          render: (
+            <ParsingQuiz
+              inverted={inverted}
+              questionSet={shuffle(qal_perfect_qatal)}
+              title={"Qal Perfect (Qatal)"}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_QAL_PERFECT), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 13 Vocabulary",
       chapter: 13,
-      path: URL_VOCAB_13,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(13)}
-          questionSet={shuffle(chapter_13)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_13), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_13,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(13)}
+              questionSet={shuffle(chapter_13)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_13), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Qal Imperfects (Qatal)",
       chapter: 12,
-      path: URL_QAL_IMPERFECT,
-      render: (
-        <ParsingQuiz
-          inverted={inverted}
-          questionSet={shuffle(qal_imperfect_qatal)}
-          allowMultiplePerson={true}
-          title={"Qal Imperfect (Qatal)"}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_QAL_IMPERFECT), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_QAL_IMPERFECT,
+          render: (
+            <ParsingQuiz
+              inverted={inverted}
+              questionSet={shuffle(qal_imperfect_qatal)}
+              allowMultiplePerson={true}
+              title={"Qal Imperfect (Qatal)"}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_QAL_IMPERFECT), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 14 Vocabulary",
       chapter: 14,
-      path: URL_VOCAB_14,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(14)}
-          questionSet={shuffle(chapter_14)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_14), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_14,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(14)}
+              questionSet={shuffle(chapter_14)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_14), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 15 Vocabulary",
       chapter: 15,
-      path: URL_VOCAB_15,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(15)}
-          questionSet={shuffle(chapter_15)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_15), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_15,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(15)}
+              questionSet={shuffle(chapter_15)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_15), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 16 Vocabulary",
       chapter: 16,
-      path: URL_VOCAB_16,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(16)}
-          questionSet={shuffle(chapter_16)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_16), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_16,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(16)}
+              questionSet={shuffle(chapter_16)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_16), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 17 Vocabulary",
       chapter: 17,
-      path: URL_VOCAB_17,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(17)}
-          questionSet={shuffle(chapter_17)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_17), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_17,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(17)}
+              questionSet={shuffle(chapter_17)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_17), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 18 Vocabulary",
       chapter: 18,
-      path: URL_VOCAB_18,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(18)}
-          questionSet={shuffle(chapter_18)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_18), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_18,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(18)}
+              questionSet={shuffle(chapter_18)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_18), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 19 Vocabulary",
       chapter: 19,
-      path: URL_VOCAB_19,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(19)}
-          questionSet={shuffle(chapter_19)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_19), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_19,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(19)}
+              questionSet={shuffle(chapter_19)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_19), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Piel, Pual, and Hithpael",
       chapter: 19,
-      path: URL_FORMS_19,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={"Piel, Pual, and Hithpael"}
-          questionSet={chapter_19_forms}
-          maxPerPage={4}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_FORMS_19), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_FORMS_19,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={"Piel, Pual, and Hithpael"}
+              questionSet={chapter_19_forms}
+              maxPerPage={4}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_FORMS_19), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 20 Vocabulary",
       chapter: 20,
-      path: URL_VOCAB_20,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(20)}
-          questionSet={shuffle(chapter_20)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_20), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_VOCAB_20,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(20)}
+              questionSet={shuffle(chapter_20)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_20), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Hiphil and Hophal",
       chapter: 20,
-      path: URL_FORMS_20,
-      render: (
-        <MatchingQuiz
-          inverted={inverted}
-          title={"Hiphil and Hophal"}
-          questionSet={chapter_20_forms}
-          maxPerPage={4}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_FORMS_20), status )}
-        />
-      ),
+      quizzes: [
+        {
+          path: URL_FORMS_20,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={"Hiphil and Hophal"}
+              questionSet={chapter_20_forms}
+              maxPerPage={4}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_FORMS_20), status)
+              }
+            />
+          ),
+        },
+      ],
     },
     {
       title: "Chapter 22 Vocabulary",
       chapter: 22,
-      path: [URL_VOCAB_22, URL_TRANSLATIONS_22],
-      render: [(
-        <MatchingQuiz
-          inverted={inverted}
-          title={vocabularyQuizTitle(22)}
-          questionSet={shuffle(chapter_22)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_VOCAB_22), status )}
-        />
-      ),
-      (
-        <SelectCorrectTranslationQuiz
-          inverted={inverted}
-          title={"Translations for Chapter 22"}
-          questionSet={shuffle(chapter_22_translations)}
-          onQuizDone={(status) => setQuizStatus(getQuizIDFromURL(URL_TRANSLATIONS_22), status, 2 )}
-        />
-      ),
-    ]
+      quizzes: [
+        {
+          path: URL_VOCAB_22,
+          render: (
+            <MatchingQuiz
+              inverted={inverted}
+              title={vocabularyQuizTitle(22)}
+              questionSet={shuffle(chapter_22)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_VOCAB_22), status)
+              }
+            />
+          ),
+        },
+        {
+          path: URL_TRANSLATIONS_22,
+          render: (
+            <SelectCorrectTranslationQuiz
+              inverted={inverted}
+              title={"Translations for Chapter 22"}
+              questionSet={shuffle(chapter_22_translations)}
+              onQuizDone={(status) =>
+                setQuizStatus(getQuizIDFromURL(URL_TRANSLATIONS_22), status, 2)
+              }
+            />
+          ),
+        },
+      ],
     },
   ];
 

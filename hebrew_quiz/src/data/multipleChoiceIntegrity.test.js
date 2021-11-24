@@ -1,6 +1,7 @@
 import chapter_5_translations from "./chapter_5_translations.json";
+import chapter_22_translations from "./chapter_22_translations.json";
 
-const multipleChoiceExams = [chapter_5_translations];
+const multipleChoiceExams = [chapter_5_translations, chapter_22_translations];
 
 const checkQuestion = (question) => {
   const indexOfAnswer = question["answers"].indexOf(question["correct_answer"]);

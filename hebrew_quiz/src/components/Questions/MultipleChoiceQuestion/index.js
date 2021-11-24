@@ -15,7 +15,7 @@ function MultipleChoiceQuestion({
   sentence,
   onAnswered,
   fluid,
-  answer,
+  correctAnswer,
   answers,
   question,
   answerFontSize,
@@ -40,7 +40,7 @@ function MultipleChoiceQuestion({
    * @returns boolean
    */
   const determineCorrectIndex = () => {
-    return answers.indexOf(answer); 
+    return answers.indexOf(correctAnswer); 
   };
 
   /**
@@ -81,7 +81,7 @@ function MultipleChoiceQuestion({
       <QuizQuestion
         answerStatus={answerStatus}
         onSubmit={submitAnswer}
-        correctAnswer={answer}
+        correctAnswer={correctAnswer}
       >
         <p>{question}</p>
         <p style={{fontSize: sentenceFontSize}}>{sentence}</p>

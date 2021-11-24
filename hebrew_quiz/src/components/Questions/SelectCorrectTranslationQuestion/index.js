@@ -10,7 +10,7 @@ function SelectCorrectTranslationQuestion({
   onClose,
   sentence,
   onAnswered,
-  answer,
+  correctAnswer,
   answers,
 }) {
   return (
@@ -21,7 +21,7 @@ function SelectCorrectTranslationQuestion({
       percent={percent}
       onClose={onClose}
       onAnswered={onAnswered}
-      correctAnswer={answer}
+      correctAnswer={correctAnswer}
       question={"Select the Best Translation for:"}
       sentence={sentence}
       answers={answers}
@@ -37,7 +37,7 @@ SelectCorrectTranslationQuestion.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   question: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired,
+  correctAnswer: PropTypes.string.isRequired,
   answers: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClose: PropTypes.func,
   onAnswered: PropTypes.func,

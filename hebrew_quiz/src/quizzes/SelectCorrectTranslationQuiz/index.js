@@ -45,7 +45,7 @@
            title={title}
            subtitle={subtitle}
            sentence={question["sentence"]}
-           answer={question["correct_answer"]}
+           correctAnswer={question["correct_answer"]}
            answers={question["answers"]}
            percent={100 * (questionNumber / questionSet.length)}
            inverted={inverted}

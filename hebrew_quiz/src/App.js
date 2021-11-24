@@ -17,7 +17,7 @@ import QuizRegistry from "./components/QuizRegistry";
 /**
  * Determine which quiz to render if there are multiple stages.
  * @param {*} quiz A quiz object
- * @returns 
+ * @returns React component
  */
 function renderQuiz(quiz) {
   if(Array.isArray(quiz.render)){

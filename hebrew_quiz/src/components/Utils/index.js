@@ -30,7 +30,7 @@ export function getQuizIDFromURL(path) {
   if(path.startsWith("/")) {
     return path.substring(1);
   }
-  
+
   return path;
 }
 /**
@@ -40,8 +40,8 @@ export function getQuizIDFromURL(path) {
  * @param {*} storageMock
  * @returns
  */
-export function getQuizStatuses(quizSet, storageMock = null) {
-  return quizSet.quizzes.map((quiz) => getQuizStatus(quiz.path, storageMock));
+export function getQuizSetStatuses(quizSet, storageMock = null) {
+  return quizSet.quizzes.map((quiz) => getQuizStatus(getQuizIDFromURL(quiz.path), storageMock));
 }
 
 /**
@@ -51,7 +51,7 @@ export function getQuizStatuses(quizSet, storageMock = null) {
  */
 export function getProgressForQuizSet(quizSet, storageMock = null) {
   // Get the statuses
-  let statuses = getQuizStatuses(quizSet, storageMock);
+  let statuses = getQuizSetStatuses(quizSet, storageMock);
 
   // Count the number that are done
   let done = statuses.filter((status) => {
@@ -63,7 +63,7 @@ export function getProgressForQuizSet(quizSet, storageMock = null) {
   });
 
   // Calculate the number that are done
-  return done.length / statuses.length;
+  return (1.0 * done.length) / statuses.length;
 }
 
 /**
@@ -81,7 +81,7 @@ export function chooseNextQuiz(quizSet, storageMock = null) {
   if (quizSet.quizzes.length === 1) {
     return quizSet.quizzes[FIRST_QUIZ];
   }
-  debugger;
+
   // Find the first quiz that is not done
   let foundQuiz = quizSet.quizzes.find((quiz) => {
     // Get the status of the quiz

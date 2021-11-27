@@ -1,4 +1,4 @@
-import { getProgressForQuizSet, getQuizStatuses, chooseNextQuiz } from ".";
+import { getProgressForQuizSet, getQuizSetStatuses, chooseNextQuiz } from ".";
 import { LocalStorageMock } from "../Persistence/index.test";
 import { setQuizStatus } from "../Persistence";
 
@@ -24,12 +24,12 @@ test("getProgressForQuizSet returns a status of zero", () => {
   expect(getProgressForQuizSet(quizSet, storageMock)).toBe(0.5);
 });
 
-test("getQuizStatuses returns the statuses of the quizzes", () => {
+test("getQuizSetStatuses returns the statuses of the quizzes", () => {
   const storageMock = new LocalStorageMock();
 
   expect(setQuizStatus("b", true, 1, storageMock)).toBe(true);
 
-  let statuses = getQuizStatuses(quizSet, storageMock);
+  let statuses = getQuizSetStatuses(quizSet, storageMock);
 
   expect(statuses.length).toBe(2);
   expect(statuses[1]).not.toBe(null);

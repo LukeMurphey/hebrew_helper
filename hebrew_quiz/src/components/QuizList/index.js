@@ -7,12 +7,13 @@ import {
   Input,
   Message,
   Dropdown,
+  Progress,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import QuizRegistry from "../QuizRegistry";
 import QuizStatus from "./QuizStatus";
 import { getQuizStatus } from "../Persistence/index";
-import { getQuizIDFromURL, chooseNextQuiz } from "../Utils";
+import { getQuizIDFromURL, chooseNextQuiz, getProgressForQuizSet } from "../Utils";
 import { FIRST_QUIZ } from "../Utils/constants";
 import PropTypes from "prop-types";
 
@@ -193,6 +194,9 @@ function QuizList({ inverted }) {
         </Table.Cell>
         <Table.Cell>
           <Link to={nextQuiz.path}>{value.title}</Link>
+          {value.quizzes.length > 1 && (
+            <Progress style={{marginBottom: 0}} percent={getProgressForQuizSet(value) * 100.0} size='tiny' success></Progress>
+          )}
         </Table.Cell>
       </Table.Row>
     );

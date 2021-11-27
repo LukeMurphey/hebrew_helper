@@ -63,3 +63,31 @@ export function getProgressForQuizSet(quizSet, storageMock = null) {
   // Calculate the number that are done
   return done.length / statuses.length;
 }
+
+/**
+ * Return the first quiz that needs to be done.
+ * @param {*} quizSet 
+ * @param {*} storageMock 
+ */
+ export function chooseNextQuiz(quizSet, storageMock = null) {
+  let foundQuiz = quizSet.quizzes.find((quiz) => {
+
+    // Get the status of the quiz
+    let status = getQuizStatus(quiz.path, storageMock);
+
+    // If the quiz is not done, then return it as the next one to do
+    if(!status || status.status !== true) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+
+  // If we found no quizzes that need to be done, then return the final one
+  if(!foundQuiz) {
+    return quizSet.quizzes[quizSet.quizzes.length - 1];
+  }
+  // Otherwise, return the first matching quiz
+  return foundQuiz;
+ }

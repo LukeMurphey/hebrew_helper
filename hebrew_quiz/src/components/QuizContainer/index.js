@@ -12,7 +12,7 @@ function QuizContainer({
   children
 }) {
   return (
-    <Container style={{ marginTop: 32 }}>
+    <Container style={{ paddingTop: 32 }}>
       <p>
         <Icon name="close" onClick={() => onClose()} />
         {percent !== null && (

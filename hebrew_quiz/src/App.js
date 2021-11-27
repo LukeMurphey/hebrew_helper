@@ -51,8 +51,10 @@ function App({ inverted }) {
           <Home />
         </NavContainer>
       </Route>
-      {QuizRegistry({ inverted }).map((quiz, i) => (
-        renderQuiz(quiz.quizzes[FIRST_QUIZ])
+      {QuizRegistry({ inverted }).map((quizSet, i) => (
+        quizSet.quizzes.map(quiz => (
+          <Route exact key={quiz.path} path={quiz.path}>{quiz.render}</Route>
+        ))
       ))}
     </Router>
   );

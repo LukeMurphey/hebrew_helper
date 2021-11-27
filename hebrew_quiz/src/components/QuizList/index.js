@@ -14,7 +14,6 @@ import QuizRegistry from "../QuizRegistry";
 import QuizStatus from "./QuizStatus";
 import { getQuizStatus } from "../Persistence/index";
 import { getQuizIDFromURL, chooseNextQuiz, getProgressForQuizSet } from "../Utils";
-import { FIRST_QUIZ } from "../Utils/constants";
 import PropTypes from "prop-types";
 
 const QUIZTYPE_ALL = null;
@@ -66,9 +65,12 @@ export function filterQuizzesByType(quizzes, quizType) {
  * @returns
  */
 export function filterQuizzesByCategory(quizzes, quizCategory) {
-  return quizzes.filter((quiz) => {
+  return quizzes.filter((quizSet) => {
+    // Get the latest quiz
+    const quiz = chooseNextQuiz(quizSet);
+
     // Filter by category
-    const quizInfo = getQuizStatus(getQuizIDFromURL(quiz.quizzes[FIRST_QUIZ].path))
+    const quizInfo = getQuizStatus(getQuizIDFromURL(quiz.path))
 
     if (quizCategory === QUIZCATEGORY_ALL) {
       // Pass it through.

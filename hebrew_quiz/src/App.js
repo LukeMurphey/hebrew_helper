@@ -22,10 +22,10 @@ import { FIRST_QUIZ } from "./components/Utils/constants";
  */
 function renderQuiz(quiz) {
   if(Array.isArray(quiz.render)){
-    return <Route exact path={quiz.path[FIRST_QUIZ]}>{quiz.render[FIRST_QUIZ]}</Route>;
+    return <Route exact key={quiz.path[FIRST_QUIZ]} path={quiz.path[FIRST_QUIZ]}>{quiz.render[FIRST_QUIZ]}</Route>;
   }
   else {
-    return <Route exact path={quiz.path}>{quiz.render}</Route>;
+    return <Route exact key={quiz.path} path={quiz.path}>{quiz.render}</Route>;
   }
 }
 

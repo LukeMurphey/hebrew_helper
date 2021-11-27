@@ -180,12 +180,6 @@ export default function QuizRegistry({ inverted }) {
             />
           ),
         },
-      ],
-    },
-    {
-      title: "Chapter 5 Translations (including this/that)",
-      chapter: 5,
-      quizzes: [
         {
           path: URL_TRANSLATIONS_5,
           render: (

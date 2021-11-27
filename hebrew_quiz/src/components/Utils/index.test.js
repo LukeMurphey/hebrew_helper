@@ -17,7 +17,6 @@ let quizSet = {
   ],
 };
 
-/*
 test("getProgressForQuizSet returns a status of zero", () => {
   const storageMock = new LocalStorageMock();
 
@@ -35,7 +34,7 @@ test("getQuizStatuses returns the statuses of the quizzes", () => {
   expect(statuses.length).toBe(2);
   expect(statuses[1]).not.toBe(null);
 });
-*/
+
 test("chooseNextQuiz returns the next quiz that must be done when some are done", () => {
     const storageMock = new LocalStorageMock();
   

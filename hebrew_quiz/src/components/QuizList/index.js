@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import QuizRegistry from "../QuizRegistry";
 import QuizStatus from "./QuizStatus";
 import { getQuizStatus } from "../Persistence/index";
-import { getQuizIDFromURL } from "../Utils";
+import { getQuizIDFromURL, chooseNextQuiz } from "../Utils";
 import { FIRST_QUIZ } from "../Utils/constants";
 import PropTypes from "prop-types";
 
@@ -182,13 +182,17 @@ function QuizList({ inverted }) {
 
   const quizRows = [];
   for (const [index, value] of filteredQuizzes.entries()) {
+    // Get the next quiz to show
+    let nextQuiz = chooseNextQuiz(value);
+
+    // Add the rows
     quizRows.push(
       <Table.Row key={index}>
         <Table.Cell>
-          <QuizStatus quizID={getQuizIDFromURL(value.quizzes[FIRST_QUIZ].path)} /> {value.chapter}
+          <QuizStatus quizID={getQuizIDFromURL(nextQuiz.path)} /> {value.chapter}
         </Table.Cell>
         <Table.Cell>
-          <Link to={value.quizzes[FIRST_QUIZ].path}>{value.title}</Link>
+          <Link to={nextQuiz.path}>{value.title}</Link>
         </Table.Cell>
       </Table.Row>
     );

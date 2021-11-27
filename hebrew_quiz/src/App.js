@@ -13,21 +13,6 @@ import NavContainer from "./components/NavContainer/index";
 import { URL_QUIZZES, URL_ABOUT, URL_HOME } from "./components/URLs/index";
 import history from "./history";
 import QuizRegistry from "./components/QuizRegistry";
-import { FIRST_QUIZ } from "./components/Utils/constants";
-
-/**
- * Determine which quiz to render if there are multiple stages.
- * @param {*} quiz A quiz object
- * @returns React component
- */
-function renderQuiz(quiz) {
-  if(Array.isArray(quiz.render)){
-    return <Route exact key={quiz.path[FIRST_QUIZ]} path={quiz.path[FIRST_QUIZ]}>{quiz.render[FIRST_QUIZ]}</Route>;
-  }
-  else {
-    return <Route exact key={quiz.path} path={quiz.path}>{quiz.render}</Route>;
-  }
-}
 
 /**
  * The main app class.

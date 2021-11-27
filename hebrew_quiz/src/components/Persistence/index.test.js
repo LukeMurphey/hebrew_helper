@@ -1,7 +1,7 @@
 import { getQuizStatuses, setQuizStatus, getQuizStatus } from "./index";
 
 // Setup a local storage mock
-class LocalStorageMock {
+export class LocalStorageMock {
   constructor() {
     this.store = {};
   }

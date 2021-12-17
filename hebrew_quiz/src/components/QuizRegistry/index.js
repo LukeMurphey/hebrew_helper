@@ -60,7 +60,7 @@ import qal_imperfect_qatal from "../../data/chapter_13_qal_imperfect_qatal.json"
 import { shuffle, vocabularyQuizTitle, getQuizIDFromURL } from "../Utils/index";
 import { setQuizStatus } from "../Persistence";
 import SelectCorrectTranslationQuiz from "../../quizzes/SelectCorrectTranslationQuiz";
-import { MATCHING_QUESTION_FONT_SIZE, MATCHING_ANSWER_FONT_SIZE} from "../Utils/constants"
+import { VOCAB_MATCHING_QUESTION_FONT_SIZE, VOCAB_MATCHING_ANSWER_FONT_SIZE, HEBREW_TEXT_FONT_SIZE} from "../Utils/constants"
 
 export default function QuizRegistry({ inverted }) {
   const quizList = [
@@ -76,8 +76,8 @@ export default function QuizRegistry({ inverted }) {
               title={"Letters"}
               questionSet={shuffle(chapter_2_letters)}
               maxPerPage={15}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={HEBREW_TEXT_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_LETTERS), status)
               }
@@ -116,8 +116,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(4)}
               questionSet={shuffle(chapter_4)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_4), status)
               }
@@ -138,8 +138,8 @@ export default function QuizRegistry({ inverted }) {
               title={"Noun Parsing"}
               subtitle={"Match the noun with the correct form"}
               questionSet={shuffle(chapter_4_nouns)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               maxPerPage={10}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_NOUN_PARSING), status)
@@ -162,8 +162,9 @@ export default function QuizRegistry({ inverted }) {
               subtitle={"Match the conjunction with the word"}
               questionSet={shuffle(chapter_4_conjunction)}
               maxPerPage={10}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              // The font-sizes are reversed from the usual because the English is in the answers list
+              answersFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_CONJUNCTION), status)
               }
@@ -183,8 +184,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(5)}
               questionSet={shuffle(chapter_5)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_5), status)
               }
@@ -236,8 +237,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(8)}
               questionSet={shuffle(chapter_8)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_8), status)
               }
@@ -257,8 +258,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={"Pronominal"}
               questionSet={shuffle(chapter_8_pronominal)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_PRONOMINAL), status)
               }
@@ -278,8 +279,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(9)}
               questionSet={shuffle(chapter_9)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_9), status)
               }
@@ -299,8 +300,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(11)}
               questionSet={shuffle(chapter_11)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_11), status)
               }
@@ -339,8 +340,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(13)}
               questionSet={shuffle(chapter_13)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_13), status)
               }
@@ -380,8 +381,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(14)}
               questionSet={shuffle(chapter_14)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_14), status)
               }
@@ -401,8 +402,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(15)}
               questionSet={shuffle(chapter_15)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_15), status)
               }
@@ -422,8 +423,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(16)}
               questionSet={shuffle(chapter_16)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_16), status)
               }
@@ -443,8 +444,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(17)}
               questionSet={shuffle(chapter_17)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_17), status)
               }
@@ -483,8 +484,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(19)}
               questionSet={shuffle(chapter_19)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_19), status)
               }
@@ -505,8 +506,9 @@ export default function QuizRegistry({ inverted }) {
               title={"Piel, Pual, and Hithpael"}
               questionSet={chapter_19_forms}
               maxPerPage={4}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              // The Hebrew is in in the answer, not the question
+              answersFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_FORMS_19), status)
               }
@@ -526,8 +528,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(20)}
               questionSet={shuffle(chapter_20)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_20), status)
               }
@@ -548,8 +550,9 @@ export default function QuizRegistry({ inverted }) {
               title={"Hiphil and Hophal"}
               questionSet={chapter_20_forms}
               maxPerPage={4}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              // The Hebrew is in in the answer, not the question
+              answersFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_FORMS_20), status)
               }
@@ -569,8 +572,8 @@ export default function QuizRegistry({ inverted }) {
               inverted={inverted}
               title={vocabularyQuizTitle(22)}
               questionSet={shuffle(chapter_22)}
-              answersFontSize={MATCHING_ANSWER_FONT_SIZE}
-              questionsFontSize={MATCHING_QUESTION_FONT_SIZE}
+              answersFontSize={VOCAB_MATCHING_ANSWER_FONT_SIZE}
+              questionsFontSize={VOCAB_MATCHING_QUESTION_FONT_SIZE}
               onQuizDone={(status) =>
                 setQuizStatus(getQuizIDFromURL(URL_VOCAB_22), status)
               }

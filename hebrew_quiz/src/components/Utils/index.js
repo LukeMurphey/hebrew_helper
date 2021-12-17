@@ -1,5 +1,4 @@
 import { getQuizStatus } from "../Persistence";
-import { FIRST_QUIZ } from "./constants";
 
 export function shuffle(array) {
   // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -79,7 +78,7 @@ export function chooseNextQuiz(quizSet, storageMock = null) {
 
   // Just return the first quiz if there is only one
   if (quizSet.quizzes.length === 1) {
-    return quizSet.quizzes[FIRST_QUIZ];
+    return quizSet.quizzes[0];
   }
 
   // Find the first quiz that is not done

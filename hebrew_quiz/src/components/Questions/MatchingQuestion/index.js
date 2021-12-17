@@ -4,7 +4,7 @@
  * WARNING: there is a bug where you can have questions that can match more than one answer but not vice-versa.
  */
 import React, { useState, useEffect } from "react";
-import { Grid, Divider, Segment, Button } from "semantic-ui-react";
+import { Grid, Divider, Segment, Button, Header } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { UNANSWERED } from "../../QuizQuestion/constants";
 import QuizContainer from "../../QuizContainer";
@@ -120,10 +120,9 @@ function MatchingQuestion({
         answerStatus={answerStatus}
         // correctAnswer={answer}
       >
+        <Header as='h3'>Click the matching pairs</Header>
         <Segment placeholder>
-          <Grid columns={2} stackable textAlign="center">
-            <Divider vertical>Click to Match</Divider>
-
+          <Grid columns={2} stackable divided textAlign="center">
             <Grid.Row verticalAlign="middle">
               <Grid.Column>
                 {shuffledQuestions.map((vocabEntry, i) => (

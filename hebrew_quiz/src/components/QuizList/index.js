@@ -21,7 +21,6 @@ const QUIZTYPE_VOCAB = "vocab";
 const QUIZTYPE_PARADIGM = "paradigm";
 
 const QUIZCATEGORY_ALL = null;
-const QUIZCATEGORY_NEXT = "next";
 const QUIZCATEGORY_WRONG = "wrong";
 const QUIZCATEGORY_RIGHT = "right";
 const QUIZCATEGORY_NOT_DONE = "not_done";
